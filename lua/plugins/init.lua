@@ -51,6 +51,8 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim", tag = "0.1.8",
   },
+  "sindrets/diffview.nvim",
+  "paopaol/telescope-git-diffs.nvim",
 
   -- UI
   "nvim-tree/nvim-tree.lua",
@@ -67,7 +69,6 @@ require("lazy").setup({
     },
     lazy = false,
   },
-  "nvim-lualine/lualine.nvim",
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -80,6 +81,13 @@ require("lazy").setup({
     "romgrk/barbar.nvim",
     init = function() vim.g.barbar_auto_setup = true end,
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
+  {
+    "sontungexpt/sttusline",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+    },
+    event = { "BufEnter" },
   },
 
   -- Utils
@@ -99,6 +107,24 @@ require("lazy").setup({
     version = "*", -- use the latest release, remove for master
     cmd = "Yeet",
     opts = {},
+  },
+  {
+    "jedrzejboczar/possession.nvim",
+    init = function() require("possession").setup({}) end,
+  },
+  "kdheepak/lazygit.nvim",
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
   },
 
   -- UX
@@ -139,7 +165,7 @@ load_confs({
   "mason-adaptor",
   "telescope",
   "neo-tree",
-  "lualine",
   "noice",
+  "sttusline",
   "toggleterm",
 })
