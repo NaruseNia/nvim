@@ -12,6 +12,11 @@ vim.keymap.set('n', '<leader>e', ":Neotree toggle<CR>", { desc = 'Toggle NeoTree
 vim.keymap.set('n', '<leader>ww', ":set linebreak wrap<CR>", { desc = 'Toggle NeoTree' })
 vim.keymap.set('n', '<leader>wn', ":set linebreak nowrap<CR>", { desc = 'Toggle NeoTree' })
 
+vim.keymap.set('n', '<leader>tt', ":ToggleTerm<CR>", { desc = 'ToggleTerm' })
+vim.keymap.set('n', '<A-t>', ":ToggleTerm direction=float<CR>", { desc = 'ToggleTerm on float' })
+
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 vim.keymap.set(
   "",
   "<Leader>r",

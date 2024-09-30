@@ -48,6 +48,7 @@ cmp.setup({
       winhightlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
       col_offset = 0,
       side_padding = 0,
+      scrollbar = true,
     }
   },
   formatting = {
@@ -62,7 +63,10 @@ cmp.setup({
 
       return kind
     end
-  }
+  },
+  performance = {
+    max_view_entries = 20,
+  },
 })
 
 cmp.setup.cmdline('/', {

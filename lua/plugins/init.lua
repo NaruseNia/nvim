@@ -90,6 +90,29 @@ require("lazy").setup({
     config = function() require("hop").setup { keys = "etovxqpdygfblzhckisuran" } end,
   },
   "yamatsum/nvim-cursorline",
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  {
+    "samharju/yeet.nvim",
+    dependencies = {
+        "stevearc/dressing.nvim", -- optional, provides sane UX
+    },
+    version = "*", -- use the latest release, remove for master
+    cmd = "Yeet",
+    opts = {},
+  },
+
+  -- UX
+  {
+    "m4xshen/autoclose.nvim",
+    init = function() require("autoclose").setup() end,
+  },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({})
+    end
+  },
 
   -- Color
   "RRethy/base16-nvim",
@@ -100,6 +123,7 @@ require("lazy").setup({
   "w0ng/vim-hybrid",
   "frenzyexists/aquarium-vim",
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "rose-pine/neovim", name = "rose-pine" },
 
   -- Git
   "sindrets/diffview.nvim",
@@ -117,4 +141,5 @@ load_confs({
   "neo-tree",
   "lualine",
   "noice",
+  "toggleterm",
 })
