@@ -126,6 +126,7 @@ require("lazy").setup({
       },
     },
   },
+  "mattn/emmet-vim",
 
   -- UX
   {
