@@ -16,6 +16,7 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.tabstop = TAB_WIDTH
 vim.opt.shiftwidth = TAB_WIDTH
+vim.opt.signcolumn = "yes"
 
 vim.opt.termguicolors = true
 vim.opt.pumblend = 10
