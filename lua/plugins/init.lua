@@ -8,9 +8,10 @@ require("lazy").setup({
 	-- Completion
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/vim-vsnip",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
+	"L3MON4D3/LuaSnip",
+	"hrsh7th/nvim-cmp",
 
 	-- Mason, LSP, DAP, Lint and etc.
 	{
@@ -212,6 +213,7 @@ load_confs({
 	"common",
 	"cmp",
 	"lspkind",
+	"lsp",
 	"mason-lspconfig",
 	"mason-adaptor",
 	"telescope",

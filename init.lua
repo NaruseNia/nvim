@@ -29,3 +29,5 @@ vim.opt.guifont = "ZedMono Nerd Font"
 
 vim.cmd("language en_US")
 vim.cmd("colorscheme obscure")
+
+require("autocmd")
