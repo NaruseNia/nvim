@@ -19,6 +19,8 @@ vim.keymap.set('n', '<leader>vb', builtin.git_branches, { desc = 'Telescope git 
 
 vim.keymap.set('n', '<leader>e', ":Neotree toggle<CR>", { desc = 'Toggle NeoTree' })
 
+vim.keymap.set('n', '<A-;>', function() vim.lsp.buf.format( {async = false} ) end, { desc = 'Format document' })
+
 vim.keymap.set('n', '<leader>ww', ":set linebreak wrap<CR>", { desc = 'Toggle NeoTree' })
 vim.keymap.set('n', '<leader>wn', ":set linebreak nowrap<CR>", { desc = 'Toggle NeoTree' })
 
@@ -60,3 +62,5 @@ vim.keymap.set(
   'copilot#Accept("<CR>")',
   { silent = true, expr = true, replace_keycodes = false, script = true }
 )
+
+vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = 'Duplicate line', noremap = true, silent = true })

@@ -39,6 +39,11 @@ require("lazy").setup({
     "github/copilot.vim",
     lazy = false,
   },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
 
   -- Treesitter
   {
@@ -64,7 +69,7 @@ require("lazy").setup({
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",  
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
     lazy = false,
@@ -85,26 +90,27 @@ require("lazy").setup({
   {
     "sontungexpt/sttusline",
     dependencies = {
-        "nvim-tree/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
     },
     event = { "BufEnter" },
   },
 
   -- Utils
   "numToStr/Comment.nvim",
+  "elentok/format-on-save.nvim",
   {
     "phaazon/hop.nvim",
     branch = "v2", -- optional but strongly recommended
     config = function() require("hop").setup { keys = "etovxqpdygfblzhckisuran" } end,
   },
   "yamatsum/nvim-cursorline",
-  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  { 'akinsho/toggleterm.nvim', version = "*",       config = true },
   {
     "samharju/yeet.nvim",
     dependencies = {
-        "stevearc/dressing.nvim", -- optional, provides sane UX
+      "stevearc/dressing.nvim", -- optional, provides sane UX
     },
-    version = "*", -- use the latest release, remove for master
+    version = "*",              -- use the latest release, remove for master
     cmd = "Yeet",
     opts = {},
   },
@@ -127,6 +133,23 @@ require("lazy").setup({
     },
   },
   "mattn/emmet-vim",
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      'nvimtools/hydra.nvim',
+    },
+    opts = {},
+    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+    keys = {
+      {
+        mode = { 'v', 'n' },
+        '<Leader>m',
+        '<cmd>MCstart<cr>',
+        desc = 'Create a selection for selected text or word under the cursor',
+      },
+    },
+  },
 
   -- UX
   {
@@ -137,7 +160,7 @@ require("lazy").setup({
     "kylechui/nvim-surround",
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({})
+      require("nvim-surround").setup({})
     end
   },
 
@@ -149,8 +172,24 @@ require("lazy").setup({
   "baskerville/bubblegum",
   "w0ng/vim-hybrid",
   "frenzyexists/aquarium-vim",
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "rose-pine/neovim", name = "rose-pine" },
+  "rebelot/kanagawa.nvim",
+  "vague2k/vague.nvim",
+  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
+  { "rose-pine/neovim",        name = "rose-pine" },
+  {
+    "killitar/obscure.nvim",
+    priority = 1000,
+    opts = {
+      styles = {
+        keywords = { italic = false },
+        identifiers = { italic = false },
+        functions = { italic = false },
+        variables = { italic = false },
+        booleans = { italic = false },
+        comments = { italic = false },
+      },
+    }
+  },
 
   -- Git
   "sindrets/diffview.nvim",
@@ -169,4 +208,6 @@ load_confs({
   "noice",
   "sttusline",
   "toggleterm",
+  "none-ls",
+  "format-on-save",
 })

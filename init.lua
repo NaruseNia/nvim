@@ -28,4 +28,4 @@ vim.opt.relativenumber = true
 vim.opt.guifont = "ZedMono Nerd Font"
 
 vim.cmd("language en_US")
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme obscure")

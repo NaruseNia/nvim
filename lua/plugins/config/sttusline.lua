@@ -7,7 +7,7 @@ require("sttusline").setup {
     laststatus = 3,
     disabled = {
         filetypes = {
-            -- "NvimTree",
+            "NvimTree",
             -- "lazy",
         },
         buftypes = {
