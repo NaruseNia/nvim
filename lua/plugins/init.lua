@@ -3,211 +3,221 @@ local load_conf = config_util.load_conf
 local load_confs = config_util.load_confs
 
 require("lazy").setup({
-  "onsails/lspkind.nvim",
+	"onsails/lspkind.nvim",
 
-  -- Completion
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/vim-vsnip",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
+	-- Completion
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/vim-vsnip",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
 
-  -- Mason, LSP, DAP, Lint and etc.
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    opts = {}
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" }
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" }
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
-  },
-  "jay-babu/mason-nvim-dap.nvim",
-  {
-    "github/copilot.vim",
-    lazy = false,
-  },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
+	-- Mason, LSP, DAP, Lint and etc.
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate",
+		opts = {},
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+	},
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	},
+	"jay-babu/mason-nvim-dap.nvim",
+	{
+		"github/copilot.vim",
+		lazy = false,
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
 
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-treesitter/nvim-treesitter-context",
-    build = ":TSUpdate"
-  },
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter-context",
+		build = ":TSUpdate",
+	},
 
-  -- Fizzy
-  {
-    "nvim-telescope/telescope.nvim", tag = "0.1.8",
-  },
-  "sindrets/diffview.nvim",
-  "paopaol/telescope-git-diffs.nvim",
+	-- Fizzy
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
+	},
+	"sindrets/diffview.nvim",
+	"paopaol/telescope-git-diffs.nvim",
 
-  -- UI
-  "nvim-tree/nvim-tree.lua",
-  "nvim-tree/nvim-web-devicons",
-  "antosha417/nvim-lsp-file-operations",
-  "nvim-lua/lsp-status.nvim",
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    lazy = false,
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  },
-  {
-    "romgrk/barbar.nvim",
-    init = function() vim.g.barbar_auto_setup = true end,
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
-  },
-  {
-    "sontungexpt/sttusline",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    event = { "BufEnter" },
-  },
+	-- UI
+	"nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons",
+	"antosha417/nvim-lsp-file-operations",
+	"nvim-lua/lsp-status.nvim",
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		lazy = false,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
+	{
+		"romgrk/barbar.nvim",
+		init = function()
+			vim.g.barbar_auto_setup = true
+		end,
+		version = "^1.0.0", -- optional: only update when a new 1.x version is released
+	},
+	{
+		"sontungexpt/sttusline",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		event = { "BufEnter" },
+	},
 
-  -- Utils
-  "numToStr/Comment.nvim",
-  "elentok/format-on-save.nvim",
-  {
-    "phaazon/hop.nvim",
-    branch = "v2", -- optional but strongly recommended
-    config = function() require("hop").setup { keys = "etovxqpdygfblzhckisuran" } end,
-  },
-  "yamatsum/nvim-cursorline",
-  { 'akinsho/toggleterm.nvim', version = "*",       config = true },
-  {
-    "samharju/yeet.nvim",
-    dependencies = {
-      "stevearc/dressing.nvim", -- optional, provides sane UX
-    },
-    version = "*",              -- use the latest release, remove for master
-    cmd = "Yeet",
-    opts = {},
-  },
-  {
-    "jedrzejboczar/possession.nvim",
-    init = function() require("possession").setup({}) end,
-  },
-  "kdheepak/lazygit.nvim",
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>",
-        function()
-          require("which-key").show({ global = false })
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
-  },
-  "mattn/emmet-vim",
-  {
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      'nvimtools/hydra.nvim',
-    },
-    opts = {},
-    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-    keys = {
-      {
-        mode = { 'v', 'n' },
-        '<Leader>m',
-        '<cmd>MCstart<cr>',
-        desc = 'Create a selection for selected text or word under the cursor',
-      },
-    },
-  },
+	-- Utils
+	"numToStr/Comment.nvim",
+	{
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		config = function()
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	},
+	"yamatsum/nvim-cursorline",
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+	{
+		"samharju/yeet.nvim",
+		dependencies = {
+			"stevearc/dressing.nvim", -- optional, provides sane UX
+		},
+		version = "*", -- use the latest release, remove for master
+		cmd = "Yeet",
+		opts = {},
+	},
+	{
+		"jedrzejboczar/possession.nvim",
+		init = function()
+			require("possession").setup({})
+		end,
+	},
+	"kdheepak/lazygit.nvim",
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+	"mattn/emmet-vim",
+	{
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvimtools/hydra.nvim",
+		},
+		opts = {},
+		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+		keys = {
+			{
+				mode = { "v", "n" },
+				"<Leader>m",
+				"<cmd>MCstart<cr>",
+				desc = "Create a selection for selected text or word under the cursor",
+			},
+		},
+	},
 
-  -- UX
-  {
-    "m4xshen/autoclose.nvim",
-    init = function() require("autoclose").setup() end,
-  },
-  {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({})
-    end
-  },
+	-- UX
+	{
+		"m4xshen/autoclose.nvim",
+		init = function()
+			require("autoclose").setup()
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+	},
 
-  -- Color
-  "RRethy/base16-nvim",
-  "nanotech/jellybeans.vim",
-  "vim-scripts/Spacegray.vim",
-  "AlessandroYorba/Alduin",
-  "baskerville/bubblegum",
-  "w0ng/vim-hybrid",
-  "frenzyexists/aquarium-vim",
-  "rebelot/kanagawa.nvim",
-  "vague2k/vague.nvim",
-  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
-  { "rose-pine/neovim",        name = "rose-pine" },
-  {
-    "killitar/obscure.nvim",
-    priority = 1000,
-    opts = {
-      styles = {
-        keywords = { italic = false },
-        identifiers = { italic = false },
-        functions = { italic = false },
-        variables = { italic = false },
-        booleans = { italic = false },
-        comments = { italic = false },
-      },
-    }
-  },
+	-- Color
+	"RRethy/base16-nvim",
+	"nanotech/jellybeans.vim",
+	"vim-scripts/Spacegray.vim",
+	"AlessandroYorba/Alduin",
+	"baskerville/bubblegum",
+	"w0ng/vim-hybrid",
+	"frenzyexists/aquarium-vim",
+	"rebelot/kanagawa.nvim",
+	"vague2k/vague.nvim",
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "rose-pine/neovim", name = "rose-pine" },
+	{
+		"killitar/obscure.nvim",
+		priority = 1000,
+		opts = {
+			styles = {
+				keywords = { italic = false },
+				identifiers = { italic = false },
+				functions = { italic = false },
+				variables = { italic = false },
+				booleans = { italic = false },
+				comments = { italic = false },
+			},
+		},
+	},
 
-  -- Git
-  "sindrets/diffview.nvim",
-  "lewis6991/gitsigns.nvim",
-
+	-- Git
+	"sindrets/diffview.nvim",
+	"lewis6991/gitsigns.nvim",
 })
 
 load_confs({
-  "common",
-  "cmp",
-  "lspkind",
-  "mason-lspconfig",
-  "mason-adaptor",
-  "telescope",
-  "neo-tree",
-  "noice",
-  "sttusline",
-  "toggleterm",
-  "none-ls",
-  "format-on-save",
+	"common",
+	"cmp",
+	"lspkind",
+	"mason-lspconfig",
+	"mason-adaptor",
+	"telescope",
+	"neo-tree",
+	"noice",
+	"sttusline",
+	"toggleterm",
+	"conform",
 })
