@@ -85,18 +85,19 @@ require("lazy").setup({
 		},
 	},
 	{
-		"romgrk/barbar.nvim",
-		init = function()
-			vim.g.barbar_auto_setup = true
+		"nvchad/ui",
+		config = function()
+			require("nvchad")
 		end,
-		version = "^1.0.0", -- optional: only update when a new 1.x version is released
+		dependencies = { "nvim-lua/plenary.nvim", "nvchad/volt" },
 	},
+
 	{
-		"sontungexpt/sttusline",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		event = { "BufEnter" },
+		"nvchad/base46",
+		lazy = true,
+		build = function()
+			require("base46").load_all_highlights()
+		end,
 	},
 
 	-- Utils
@@ -219,7 +220,6 @@ load_confs({
 	"telescope",
 	"neo-tree",
 	"noice",
-	"sttusline",
 	"toggleterm",
 	"conform",
 })

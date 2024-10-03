@@ -1,5 +1,14 @@
 local TAB_WIDTH = 2
 
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
+
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+	dofile(vim.g.base46_cache .. v)
+end
+
 -- Prelude --
 require("lazy_init")
 -- For make correct mappings --
@@ -28,6 +37,6 @@ vim.opt.relativenumber = true
 vim.opt.guifont = "ZedMono Nerd Font"
 
 vim.cmd("language en_US")
-vim.cmd("colorscheme obscure")
+-- vim.cmd("colorscheme obscure")
 
 require("autocmd")

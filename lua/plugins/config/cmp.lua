@@ -2,7 +2,7 @@ local cmp = require("cmp")
 local snip = require("luasnip")
 local lspkind = require("lspkind")
 
-cmp.setup({
+local options = {
 	snippet = {
 		expand = function(args)
 			snip.lsp_expand(args.body)
@@ -54,28 +54,31 @@ cmp.setup({
 	experimental = {
 		ghost_text = true,
 	},
-	window = {
-		completion = {
-			winhightlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-			col_offset = 0,
-			side_padding = 0,
-			scrollbar = true,
-		},
-	},
-	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 80 })(entry, vim_item)
-			local strings = vim.split(kind.kind, "%s", { trimempty = true })
-			-- kind.kind = " " .. strings[1] .. "  "
-			-- kind.menu = "    (" .. strings[2] .. ") "
-			kind.kind = " " .. strings[1]
-			kind.menu = ""
+	-- window = {
+	-- 	completion = {
+	-- 		winhightlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+	-- 		col_offset = 0,
+	-- 		side_padding = 0,
+	-- 		scrollbar = true,
+	-- 	},
+	-- },
+	-- 	formatting = {
+	-- 		fields = { "kind", "abbr", "menu" },
+	-- 		format = function(entry, vim_item)
+	-- 			local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 80 })(entry, vim_item)
+	-- 			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+	-- 			-- kind.kind = " " .. strings[1] .. "  "
+	-- 			-- kind.menu = "    (" .. strings[2] .. ") "
+	-- 			kind.kind = " " .. strings[1]
+	-- 			kind.menu = ""
+	--
+	-- 			return kind
+	-- 		end,
+	-- 	},
+}
 
-			return kind
-		end,
-	},
-})
+options = vim.tbl_deep_extend("force", options, require("nvchad.cmp"))
+cmp.setup(options)
 
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
