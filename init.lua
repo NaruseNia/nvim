@@ -2,19 +2,18 @@ local TAB_WIDTH = 2
 
 vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
 
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
-
-for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-	dofile(vim.g.base46_cache .. v)
-end
-
 -- Prelude --
 require("lazy_init")
 -- For make correct mappings --
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 require("plugins.init")
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+	dofile(vim.g.base46_cache .. v)
+end
 require("keymaps.init")
 
 vim.g.guitablabel = "%t"
