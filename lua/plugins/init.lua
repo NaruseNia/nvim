@@ -86,11 +86,26 @@ require("lazy").setup({
 
 	-- Fizzy
 	{
+		"junegunn/fzf",
+		build = function()
+			vim.fn["fzf#install"]()
+		end,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 	},
 	"sindrets/diffview.nvim",
 	"paopaol/telescope-git-diffs.nvim",
+	{
+		"linrongbin16/fzfx.nvim",
+		-- Optional to avoid break changes between major versions.
+		version = "v7.*",
+		dependencies = { "nvim-tree/nvim-web-devicons", "junegunn/fzf" },
+		config = function()
+			require("fzfx").setup()
+		end,
+	},
 
 	-- UI
 	"nvim-tree/nvim-tree.lua",
@@ -122,13 +137,18 @@ require("lazy").setup({
 		end,
 		dependencies = { "nvim-lua/plenary.nvim", "nvchad/volt" },
 	},
-
 	{
 		"nvchad/base46",
 		lazy = true,
 		build = function()
 			require("base46").load_all_highlights()
 		end,
+	},
+	{
+		"LunarVim/breadcrumbs.nvim",
+		dependencies = {
+			{ "SmiteshP/nvim-navic" },
+		},
 	},
 
 	-- Utils
@@ -292,4 +312,5 @@ load_confs({
 	"noice",
 	"toggleterm",
 	"conform",
+	"breadcrumbs",
 })

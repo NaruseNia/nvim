@@ -26,39 +26,39 @@ vim.keymap.set("n", "<leader>ci", crates.open_crates_io, { desc = "Open crates' 
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
 
 vim.keymap.set("n", "<A-;>", function()
-  vim.lsp.buf.format({ async = false })
+	vim.lsp.buf.format({ async = false })
 end, { desc = "Format document" })
 
-vim.keymap.set("n", "<C-x>", ":BufferClose<CR>", { desc = "Format document" })
+vim.keymap.set("n", "<C-x>", ":BufferClose<CR>", { desc = "Close Buffer" })
 
 vim.keymap.set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Toggle NeoTree" })
 vim.keymap.set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Toggle NeoTree" })
 
-vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "ToggleTerm" })
-vim.keymap.set("n", "<A-t>", ":ToggleTerm direction=float<CR>", { desc = "ToggleTerm on float" })
+vim.keymap.set("n", "<A-t>", ":ToggleTerm<CR>", { desc = "ToggleTerm" })
+vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = "ToggleTerm on float" })
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("t", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set("", "<Leader>r", function()
-  hop.hint_char1({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
+	hop.hint_char1({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
 end, { remap = true })
 vim.keymap.set("", "<Leader>R", function()
-  hop.hint_char1({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
+	hop.hint_char1({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
 end, { remap = true })
 vim.keymap.set("", "<Leader>z", function()
-  hop.hint_char2({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
+	hop.hint_char2({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
 end, { remap = true })
 vim.keymap.set("", "<Leader>Z", function()
-  hop.hint_char2({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
+	hop.hint_char2({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
 end, { remap = true })
 
 vim.keymap.set(
-  "i",
-  "<C-z>",
-  'copilot#Accept("<CR>")',
-  { silent = true, expr = true, replace_keycodes = false, script = true }
+	"i",
+	"<C-z>",
+	'copilot#Accept("<CR>")',
+	{ silent = true, expr = true, replace_keycodes = false, script = true }
 )
 
 vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = "Duplicate line", noremap = true, silent = true })
