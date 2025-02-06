@@ -14,6 +14,7 @@ require("lazy").setup({
 	"hrsh7th/nvim-cmp",
 
 	-- Mason, LSP, DAP, Lint and etc.
+	"aznhe21/actions-preview.nvim",
 	{
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",

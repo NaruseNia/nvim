@@ -62,3 +62,5 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = "Duplicate line", noremap = true, silent = true })
+vim.keymap.set({ "n", "i" }, "<C-l>", require("actions-preview").code_actions, { desc = "LSP code action" })
+vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.rename, { desc = "LSP rename symbol" })
