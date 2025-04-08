@@ -180,7 +180,16 @@ require("lazy").setup({
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
-    opts = {},
+    opts = {
+      indent = { char = "┊" },
+      whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+      },
+      scope = {
+        enabled = true,
+      },
+    },
   },
   {
     "chrisgrieser/nvim-origami",
