@@ -395,4 +395,5 @@ load_confs({
   "conform",
   "ufo",
   "statuscol",
+  "scrollview",
 })
