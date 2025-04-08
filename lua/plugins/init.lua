@@ -175,12 +175,22 @@ require("lazy").setup({
   "code-biscuits/nvim-biscuits",
   "toppair/reach.nvim",
   "kazhala/close-buffers.nvim",
+  "sitiom/nvim-numbertoggle",
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
-    opts = {},
+    opts = {
+      indent = { char = "┊" },
+      whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+      },
+      scope = {
+        enabled = true,
+      },
+    },
   },
   {
     "chrisgrieser/nvim-origami",

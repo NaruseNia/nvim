@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>ci", crates.open_crates_io, { desc = "Open crates' 
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
 
 vim.keymap.set("n", "<A-;>", function()
-	vim.lsp.buf.format({ async = false })
+  vim.lsp.buf.format({ async = false })
 end, { desc = "Format document" })
 
 vim.keymap.set("n", "<C-x>", ":BufferClose<CR>", { desc = "Close Buffer" })
@@ -43,10 +43,10 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set(
-	"i",
-	"<C-z>",
-	'copilot#Accept("<CR>")',
-	{ silent = true, expr = true, replace_keycodes = false, script = true }
+  "i",
+  "<C-z>",
+  'copilot#Accept("<CR>")',
+  { silent = true, expr = true, replace_keycodes = false, script = true }
 )
 
 vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = "Duplicate line", noremap = true, silent = true })
@@ -68,3 +68,4 @@ vim.keymap.set({ "n", "v" }, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
 vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
 
 vim.keymap.set("n", "<leader>rb", function() require("reach").buffers() end, {})
+vim.keymap.set("n", "<leader>co", function() require("precognition").toggle() end, opts)
