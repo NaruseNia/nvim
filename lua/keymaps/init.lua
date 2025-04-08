@@ -2,6 +2,7 @@ local builtin = require("telescope.builtin")
 local hop = require("hop")
 local dircs = require("hop.hint").HintDirection
 local crates = require("crates")
+local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
@@ -26,7 +27,7 @@ vim.keymap.set("n", "<leader>ci", crates.open_crates_io, { desc = "Open crates' 
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
 
 vim.keymap.set("n", "<A-;>", function()
-	vim.lsp.buf.format({ async = false })
+  vim.lsp.buf.format({ async = false })
 end, { desc = "Format document" })
 
 vim.keymap.set("n", "<C-x>", ":BufferClose<CR>", { desc = "Close Buffer" })
@@ -42,25 +43,34 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set("", "<Leader>r", function()
-	hop.hint_char1({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
+  hop.hint_char1({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
 end, { remap = true })
 vim.keymap.set("", "<Leader>R", function()
-	hop.hint_char1({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
+  hop.hint_char1({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
 end, { remap = true })
 vim.keymap.set("", "<Leader>z", function()
-	hop.hint_char2({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
+  hop.hint_char2({ direction = dircs.AFTER_CURSOR, currend_line_only = false })
 end, { remap = true })
 vim.keymap.set("", "<Leader>Z", function()
-	hop.hint_char2({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
+  hop.hint_char2({ direction = dircs.BEFORE_CURSOR, currend_line_only = false })
 end, { remap = true })
 
 vim.keymap.set(
-	"i",
-	"<C-z>",
-	'copilot#Accept("<CR>")',
-	{ silent = true, expr = true, replace_keycodes = false, script = true }
+  "i",
+  "<C-z>",
+  'copilot#Accept("<CR>")',
+  { silent = true, expr = true, replace_keycodes = false, script = true }
 )
 
 vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = "Duplicate line", noremap = true, silent = true })
 vim.keymap.set({ "n", "i" }, "<C-l>", require("actions-preview").code_actions, { desc = "LSP code action" })
 vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.rename, { desc = "LSP rename symbol" })
+
+vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+vim.keymap.set("n", "<A-j>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+vim.keymap.set("i", "<C-;>", "<Cmd>Lspsaga signature_help<CR>", opts)
+vim.keymap.set("n", "gp", "<Cmd>Lspsaga preview_definition<CR>", opts)
+vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts)

@@ -12,7 +12,7 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-	dofile(vim.g.base46_cache .. v)
+  dofile(vim.g.base46_cache .. v)
 end
 require("keymaps.init")
 
@@ -37,11 +37,10 @@ vim.opt.relativenumber = true
 -- vim.cmd("colorscheme obscure")
 
 vim.diagnostic.config({
-	virtual_text = false,
+  virtual_text = false,
 })
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 require("autocmd")
-
