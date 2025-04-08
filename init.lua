@@ -33,9 +33,7 @@ vim.opt.cursorline = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.guifont = "ZedMono Nerd Font"
 
-vim.cmd("language en_US")
 -- vim.cmd("colorscheme obscure")
 
 vim.diagnostic.config({
