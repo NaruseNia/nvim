@@ -69,3 +69,5 @@ vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
 
 vim.keymap.set("n", "<leader>rb", function() require("reach").buffers() end, {})
 vim.keymap.set("n", "<leader>co", function() require("precognition").toggle() end, opts)
+
+vim.keymap.set("n", "<leader>st", function() require("nvchad.themes").open() end, { desc = "Open themes picker" })

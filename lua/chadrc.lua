@@ -1,7 +1,7 @@
 local exports = {}
 
 exports.base46 = {
-	theme = "ashes",
+	theme = "mountain",
 }
 
 exports.ui = {
