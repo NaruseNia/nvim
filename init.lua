@@ -35,6 +35,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- vim.cmd("colorscheme obscure")
+if vim.g.neovide then
+  vim.o.guifont = "Moralerspace Neon NF"
+end
 
 -- Folding
 vim.o.foldcolumn = '1' -- '0' is not bad
