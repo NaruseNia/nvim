@@ -42,12 +42,14 @@ vim.keymap.set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Linebre
 
 --#region ToggleTerm
 vim.keymap.set("n", "<A-t>", ":ToggleTerm<CR>", { desc = "ToggleTerm" })
+vim.keymap.set("t", "<A-t>", "<C-\\><C-n>:ToggleTerm<CR>", { desc = "ToggleTerm in terminal mode" })
 vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = "ToggleTerm on float" })
+vim.keymap.set("n", "<leader>tt", "<C-\\><C-n>:ToggleTerm direction=float<CR>",
+  { desc = "ToggleTerm on float in terminal mode" })
 --#endregion
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-
-vim.keymap.set("t", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
+-- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+-- vim.keymap.set("t", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set(
   "i",
