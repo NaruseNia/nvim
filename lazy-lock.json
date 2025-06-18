@@ -38,6 +38,8 @@
   "hlchunk.nvim": { "branch": "main", "commit": "474ec5d0f220158afa83aaefab32402e710d3032" },
   "hover.nvim": { "branch": "main", "commit": "07c7269c3a88751f2f36ed0563dc6e7b8b84f7f7" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
+  "inlay-hint.nvim": { "branch": "main", "commit": "ee8aa9806d1e160a2bc08b78ae60568fb6d9dbce" },
+  "inlay-hints.nvim": { "branch": "master", "commit": "990e1f96699b8293b6665b9e73b16128c66684e6" },
   "jellybeans.vim": { "branch": "master", "commit": "ef83bf4dc8b3eacffc97bf5c96ab2581b415c9fa" },
   "kanagawa.nvim": { "branch": "master", "commit": "debe91547d7fb1eef34ce26a5106f277fbfdd109" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },

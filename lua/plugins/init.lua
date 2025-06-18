@@ -28,6 +28,9 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
   },
   {
+    "neovim/nvim-lspconfig",
+  },
+  {
     "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
@@ -475,6 +478,23 @@ require("lazy").setup({
       vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
     end
   },
+  {
+    'felpafel/inlay-hint.nvim',
+    event = 'LspAttach',
+    config = function()
+      require("inlay-hint").setup {
+        virt_text_pos = "inline",
+      }
+    end,
+  },
+  {
+    "MysticalDevil/inlay-hints.nvim",
+    event = "LspAttach",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      require("inlay-hints").setup()
+    end
+  },
 
   -- Color
   "RRethy/base16-nvim",
@@ -546,6 +566,7 @@ load_confs({
   "cmp",
   "lspkind",
   "lsp",
+  "lsp-config",
   "mason-lspconfig",
   "mason-adaptor",
   "telescope",
