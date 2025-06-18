@@ -207,12 +207,12 @@ require("lazy").setup({
           -- require('hover.providers.highlight')
         end,
         preview_opts = {
-          border = 'single'
+          border = 'rounded'
         },
         -- Whether the contents of a currently open hover window should be moved
         -- to a :h preview-window when pressing the hover keymap.
-        preview_window = false,
-        title = true,
+        preview_window = true,
+        title = false,
         mouse_delay = 1000
       }
 
