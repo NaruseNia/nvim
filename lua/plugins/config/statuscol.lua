@@ -11,14 +11,14 @@ require("statuscol").setup({
         maxwidth = 1,
       },
     },
-    {
-      sign = {
-        namespace = { "gitsigns" },
-        maxwidth = 1,
-        colwidth = 1,
-        wrap = true,
-      },
-    },
+    -- {
+    --   sign = {
+    --     namespace = { "gitsigns" },
+    --     maxwidth = 1,
+    --     colwidth = 1,
+    --     wrap = true,
+    --   },
+    -- },
     {
       text = { builtin.foldfunc },
       click = "v:lua.ScFa",

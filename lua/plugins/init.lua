@@ -15,13 +15,16 @@ require("lazy").setup({
 
   -- Mason, LSP, DAP, Lint and etc.
   "aznhe21/actions-preview.nvim",
+  "ollykel/v-vim",
   {
     "williamboman/mason.nvim",
+    version = "^1.0.0",
     build = ":MasonUpdate",
     opts = {},
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    version = "^1.0.0",
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
   },
   {
@@ -59,16 +62,20 @@ require("lazy").setup({
       require("crates").setup()
     end,
   },
-  {
-    'nvimdev/lspsaga.nvim',
-    config = function()
-      require('lspsaga').setup({})
-    end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter', -- optional
-      'nvim-tree/nvim-web-devicons',     -- optional
-    }
-  },
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   config = function()
+  --     require("lspsaga").setup({
+  --       implement = {
+  --         enable = false,
+  --       }
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter", -- optional
+  --     "nvim-tree/nvim-web-devicons",     -- optional
+  --   }
+  -- },
   {
     "oclay1st/gradle.nvim",
     cmd = { "Gradle", "GradleExec", "GradleInit" },
@@ -167,6 +174,21 @@ require("lazy").setup({
       require("base46").load_all_highlights()
     end,
   },
+  {
+    "Bekaboo/dropbar.nvim",
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make"
+    },
+    config = function()
+      local dropbar_api = require("dropbar.api")
+      vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
+      vim.keymap.set("n", "[;", dropbar_api.goto_context_start,
+        { desc = "Go to start of current context" })
+      vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+    end
+  },
 
   -- Utils
   "numToStr/Comment.nvim",
@@ -255,8 +277,34 @@ require("lazy").setup({
       },
     },
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    -- For blink.cmp's completion
+    -- source
+    -- dependencies = {
+    --     "saghen/blink.cmp"
+    -- },
+  },
+  {
+    'dnlhc/glance.nvim',
+    cmd = 'Glance'
+  },
 
   -- UX
+  "monaqa/dial.nvim",
+  "rainbowhxch/accelerated-jk.nvim",
+  "kosayoda/nvim-lightbulb",
   "tris203/precognition.nvim",
   "windwp/nvim-ts-autotag",
   "nvim-focus/focus.nvim",
@@ -324,6 +372,68 @@ require("lazy").setup({
         show_help = "<f1>",
       },
     },
+  },
+  {
+    "MagicDuck/grug-far.nvim",
+    -- Note (lazy loading): grug-far.lua defers all it"s requires so it"s lazy by default
+    -- additional lazy config to defer loading is not really needed...
+    config = function()
+      -- optional setup call to override plugin options
+      -- alternatively you can set options with vim.g.grug_far = { ... }
+      require("grug-far").setup({
+        -- options, see Configuration section below
+        -- there are no required options atm
+      });
+    end
+  },
+  {
+    "wasabeef/bufferin.nvim",
+    cmd = { "Bufferin" },
+    config = function()
+      require("bufferin").setup()
+    end,
+    -- Optional dependencies for enhanced experience
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- For file icons
+      -- "willothy/nvim-cokeline",     -- For buffer line integration
+      -- "akinsho/bufferline.nvim",    -- Alternative buffer line
+    }
+  },
+  {
+    "kkoomen/vim-doge",
+    build = ":call doge#install()",
+  },
+  {
+    "bassamsdata/namu.nvim",
+    config = function()
+      require("namu").setup({
+        -- Enable the modules you want
+        namu_symbols = {
+          enable = true,
+          options = {}, -- here you can configure namu
+        },
+        -- Optional: Enable other modules if needed
+        ui_select = { enable = false }, -- vim.ui.select() wrapper
+      })
+      -- === Suggested Keymaps: ===
+      vim.keymap.set("n", "<leader>ss", ":Namu symbols<cr>", {
+        desc = "Jump to LSP symbol",
+        silent = true,
+      })
+      vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", {
+        desc = "LSP Symbols - Workspace",
+        silent = true,
+      })
+    end,
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy", -- Or `LspAttach`
+    priority = 1000,    -- needs to be loaded in first
+    config = function()
+      require('tiny-inline-diagnostic').setup()
+      vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
+    end
   },
 
   -- Color

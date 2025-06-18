@@ -4,6 +4,7 @@ local builtin = require("telescope.builtin")
 local crates = require("crates")
 local opts = { noremap = true, silent = true }
 
+--#region Telescope
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
@@ -18,11 +19,15 @@ vim.keymap.set("n", "<leader>fz", builtin.lsp_workspace_symbols, { desc = "Teles
 vim.keymap.set("n", "<leader>vc", builtin.git_commits, { desc = "Telescope LSP commits" })
 vim.keymap.set("n", "<leader>vs", builtin.git_status, { desc = "Telescope git status" })
 vim.keymap.set("n", "<leader>vb", builtin.git_branches, { desc = "Telescope git branches" })
+--#endregion
+
+--#region Crates
 vim.keymap.set("n", "<leader>ct", crates.toggle, { desc = "Toggle crates ui" })
 vim.keymap.set("n", "<leader>cc", crates.show_popup, { desc = "Show crates popup" })
 vim.keymap.set("n", "<leader>cf", crates.show_features_popup, { desc = "Show crates features" })
 vim.keymap.set("n", "<leader>cd", crates.open_documentation, { desc = "Open crates' documentation" })
 vim.keymap.set("n", "<leader>ci", crates.open_crates_io, { desc = "Open crates' page" })
+--#endregion
 
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
 
@@ -32,11 +37,13 @@ end, { desc = "Format document" })
 
 vim.keymap.set("n", "<C-x>", ":BufferClose<CR>", { desc = "Close Buffer" })
 
-vim.keymap.set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Toggle NeoTree" })
-vim.keymap.set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Toggle NeoTree" })
+vim.keymap.set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Linebreak wrap" })
+vim.keymap.set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Linebreak nowrap" })
 
+--#region ToggleTerm
 vim.keymap.set("n", "<A-t>", ":ToggleTerm<CR>", { desc = "ToggleTerm" })
 vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = "ToggleTerm on float" })
+--#endregion
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
@@ -53,21 +60,64 @@ vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = "Duplicate line", noremap = tr
 vim.keymap.set({ "n", "i" }, "<C-l>", require("actions-preview").code_actions, { desc = "LSP code action" })
 vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.rename, { desc = "LSP rename symbol" })
 
-vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.keymap.set("n", "<C-J>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-vim.keymap.set("i", "<C-;>", "<Cmd>Lspsaga signature_help<CR>", opts)
-vim.keymap.set("n", "gp", "<Cmd>Lspsaga preview_definition<CR>", opts)
-vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
-vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+-- vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+-- vim.keymap.set("n", "<C-J>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+-- vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
+-- vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+-- vim.keymap.set("i", "<C-;>", "<Cmd>Lspsaga signature_help<CR>", opts)
+-- vim.keymap.set("n", "gp", "<Cmd>Lspsaga preview_definition<CR>", opts)
+-- vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+-- vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 
-vim.keymap.set("n", "<A-k>", "<Plug>(CybuPrev)")
-vim.keymap.set("n", "<A-j>", "<Plug>(CybuNext)")
-vim.keymap.set({ "n", "v" }, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
-vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
+-- vim.keymap.set("n", "<A-k>", "<Plug>(CybuPrev)")
+-- vim.keymap.set("n", "<A-j>", "<Plug>(CybuNext)")
+-- vim.keymap.set({ "n", "v" }, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
+-- vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
 
 vim.keymap.set("n", "<leader>rb", function() require("reach").buffers() end, {})
 vim.keymap.set("n", "<leader>co", function() require("precognition").toggle() end, opts)
 
 vim.keymap.set("n", "<leader>st", function() require("nvchad.themes").open() end, { desc = "Open themes picker" })
+
+vim.keymap.set("n", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+
+vim.keymap.set('n', '<leader>b', '<cmd>Bufferin<cr>', { desc = 'Toggle Bufferin' })
+
+--#region Accelerated jk
+vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+--#endregion
+
+--#region Dial
+vim.keymap.set("n", "<C-a>", function()
+  require("dial.map").manipulate("increment", "normal")
+end)
+vim.keymap.set("n", "<C-x>", function()
+  require("dial.map").manipulate("decrement", "normal")
+end)
+vim.keymap.set("n", "g<C-a>", function()
+  require("dial.map").manipulate("increment", "gnormal")
+end)
+vim.keymap.set("n", "g<C-x>", function()
+  require("dial.map").manipulate("decrement", "gnormal")
+end)
+vim.keymap.set("v", "<C-a>", function()
+  require("dial.map").manipulate("increment", "visual")
+end)
+vim.keymap.set("v", "<C-x>", function()
+  require("dial.map").manipulate("decrement", "visual")
+end)
+vim.keymap.set("v", "g<C-a>", function()
+  require("dial.map").manipulate("increment", "gvisual")
+end)
+vim.keymap.set("v", "g<C-x>", function()
+  require("dial.map").manipulate("decrement", "gvisual")
+end)
+--#endregion
+
+--#region Glance
+vim.keymap.set('n', 'gD', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', 'gR', '<CMD>Glance references<CR>')
+vim.keymap.set('n', 'gY', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', 'gM', '<CMD>Glance implementations<CR>')
+--#endregion

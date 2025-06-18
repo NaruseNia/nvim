@@ -47,7 +47,7 @@ vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_lines = false,
 })
 
 -- Show line diagnostics automatically in hover window
