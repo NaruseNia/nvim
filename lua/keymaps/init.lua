@@ -39,6 +39,7 @@ vim.keymap.set("n", "<C-x>", ":BufferClose<CR>", { desc = "Close Buffer" })
 
 vim.keymap.set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Linebreak wrap" })
 vim.keymap.set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Linebreak nowrap" })
+vim.keymap.set("n", "<leader>ya", ":%y+<CR>", { desc = "Copy all" })
 
 --#region ToggleTerm
 vim.keymap.set("n", "<A-t>", ":ToggleTerm<CR>", { desc = "ToggleTerm" })
