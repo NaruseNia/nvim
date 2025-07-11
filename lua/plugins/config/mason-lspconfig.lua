@@ -4,5 +4,7 @@ require('mason-lspconfig').setup_handlers({ function(server)
       vim.lsp.protocol.make_client_capabilities()
     )
   }
-  require('lspconfig')[server].setup(opt)
+  if server ~= 'jdtls' then
+    require('lspconfig')[server].setup(opt)
+  end
 end })

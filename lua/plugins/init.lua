@@ -53,9 +53,20 @@ require("lazy").setup({
     lazy = false,   -- This plugin is already lazy
   },
   {
+    "ranjithshegde/ccls.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+  },
+  {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
-      require("lsp_lines").setup()
+      require("lsp_lines").setup({
+        filetypes = { "c", "cpp" }
+      })
     end,
   },
   {
@@ -125,6 +136,20 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
   },
+  {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    config = function()
+      require("telescope").load_extension("smart_open")
+    end,
+    dependencies = {
+      "kkharji/sqlite.lua",
+      -- Only required if using match_algorithm fzf
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+      { "nvim-telescope/telescope-fzy-native.nvim" },
+    },
+  },
   "sindrets/diffview.nvim",
   "paopaol/telescope-git-diffs.nvim",
   {
@@ -153,6 +178,19 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    lazy = false,
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {
+      default_file_explorer = false,
+    },
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
   },
   {
@@ -351,6 +389,7 @@ require("lazy").setup({
   "tris203/precognition.nvim",
   "windwp/nvim-ts-autotag",
   "nvim-focus/focus.nvim",
+  "rapan931/lasterisk.nvim",
   {
     "saifulapm/commasemi.nvim",
     lazy = false,
@@ -569,6 +608,7 @@ load_confs({
   "lsp-config",
   "mason-lspconfig",
   "mason-adaptor",
+  "ccls",
   "telescope",
   "neo-tree",
   "noice",
