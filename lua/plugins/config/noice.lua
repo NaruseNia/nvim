@@ -17,6 +17,29 @@ local suppressed = {
 }
 
 require("noice").setup({
+  views = {
+    cmdline_popup = {
+      border = {
+        style = "none",
+        padding = { 1, 2 },
+      },
+      filter_options = {},
+      win_options = {
+        winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      },
+    },
+  },
+  cmdline = {
+    enabled = true,
+    format = {
+      search_down = {
+        view = "cmdline",
+      },
+      search_up = {
+        view = "cmdline",
+      },
+    },
+  },
   messages = {
     enabled = true,              -- enables the Noice messages UI
     view = "mini",               -- default view for messages
