@@ -15,6 +15,7 @@ require("lazy").setup({
 
   -- Mason, LSP, DAP, Lint and etc.
   "aznhe21/actions-preview.nvim",
+  "hrsh7th/nvim-gtd",
   "ollykel/v-vim",
   {
     "williamboman/mason.nvim",

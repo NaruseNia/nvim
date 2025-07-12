@@ -24,6 +24,8 @@ vim.keymap.set("n", "<leader>st", function() require("nvchad.themes").open() end
 vim.keymap.set("n", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
 vim.keymap.set('n', '<leader>bi', '<cmd>Bufferin<cr>', { desc = 'Toggle Bufferin' })
+vim.keymap.set('n', '<leader>x', '<cmd>BDelete this<cr>', { desc = 'Close this' })
+vim.keymap.set('n', '<leader>q', '<cmd>BDelete this<cr><cmd>q<cr>', { desc = 'Close this and close pane' })
 vim.keymap.set('n', '<leader>bo', '<cmd>BDelete other<cr>', { desc = 'Close other buffer(s)' })
 vim.keymap.set('n', '<leader>/', ':noh<cr>', { desc = 'Clear search' })
 
@@ -124,4 +126,19 @@ vim.keymap.set('n', 'gM', '<CMD>Glance implementations<CR>')
 vim.keymap.set('n', '*', function() require("lasterisk").search() end)
 vim.keymap.set('n', 'g*', function() require("lasterisk").search({ is_whole = false }) end)
 vim.keymap.set('x', 'g*', function() require("lasterisk").search({ is_whole = false }) end)
+--#endregion
+
+--#region gtd
+vim.keymap.set('n', 'gf<CR>', function()
+  require('gtd').exec({ command = 'edit' })
+end)
+vim.keymap.set('n', 'gfs', function()
+  require('gtd').exec({ command = 'split' })
+end)
+vim.keymap.set('n', 'gv', function()
+  require('gtd').exec({ command = 'vsplit' })
+end)
+vim.keymap.set('n', 'gd', function()
+  require('gtd').exec({ command = 'vsplit' })
+end)
 --#endregion
