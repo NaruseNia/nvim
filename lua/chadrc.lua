@@ -1,7 +1,18 @@
 local exports = {}
 
 exports.base46 = {
-  theme = "kanagawa-dragon",
+  changed_themes = {
+    gruvchad = {
+      base_16 = {
+        base00 = "#191c19",
+      },
+      base_30 = {
+        baby_pink = "#f75779",
+        black = "#191c19",
+      },
+    },
+  },
+  theme = "gruvchad",
 }
 
 exports.ui = {

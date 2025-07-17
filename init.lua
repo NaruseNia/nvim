@@ -18,6 +18,7 @@ require("keymaps.init")
 
 vim.g.guitablabel = "%t"
 vim.g.linebreak = "nowrap"
+vim.g.gruvbox_contrast_dark = "hard"
 
 -- Vim options --
 vim.opt.expandtab = true

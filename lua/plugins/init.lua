@@ -599,6 +599,9 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
     }
   },
+
+  -- Themes
+  "morhetz/gruvbox",
 })
 
 load_confs({
