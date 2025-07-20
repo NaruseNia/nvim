@@ -25,7 +25,6 @@ require("lazy").setup({
   "aznhe21/actions-preview.nvim",
   "hrsh7th/nvim-gtd",
   "ollykel/v-vim",
-  "yioneko/nvim-vtsls",
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",

@@ -1,16 +1,5 @@
-local function merge(t1, t2)
-  local merged = {}
-  for _, v in ipairs(t1) do
-    table.insert(merged, v)
-  end
-  for _, v in ipairs(t2) do
-    table.insert(merged, v)
-  end
-  return merged
-end
-
 ---@type vim.lsp.Config
-return merge({
+return {
   settings = {
     typescript = {
       inlayHints = {
@@ -23,4 +12,4 @@ return merge({
       },
     },
   },
-}, require("vtsls").lspconfig)
+}
