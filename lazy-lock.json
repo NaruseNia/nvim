@@ -5,6 +5,7 @@
   "Spacegray.vim": { "branch": "master", "commit": "99a6615fd771c9f9a3b97acc11bfd2220c00a5a7" },
   "accelerated-jk.nvim": { "branch": "main", "commit": "8fb5dad4ccc1811766cebf16b544038aeeb7806f" },
   "actions-preview.nvim": { "branch": "master", "commit": "36513ad213855d497b7dd3391a24d1d75d58e36f" },
+  "ale": { "branch": "master", "commit": "4b1bf3ee8f8516dc52d0a64aef7b6f2723bfea77" },
   "aquarium-vim": { "branch": "develop", "commit": "6da0091836f36f82af558f0395ea50fd5a297d6d" },
   "autoclose.nvim": { "branch": "main", "commit": "b2077aa2c83df7ebc19b2a20a3a0654b24ae9c8f" },
   "avante.nvim": { "branch": "main", "commit": "59ad32efcf6c83b20d7bf3a7587224628ca6df7f" },

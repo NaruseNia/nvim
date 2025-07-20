@@ -50,6 +50,12 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.diagnostic.config({
   virtual_lines = false,
+  linehl = {
+    [vim.diagnostic.severity.ERROR] = "DiagnosticErrorLn",
+    [vim.diagnostic.severity.WARN]  = "DiagnosticWarnLn",
+    [vim.diagnostic.severity.INFO]  = "DiagnosticInfoLn",
+    [vim.diagnostic.severity.HINT]  = "DiagnosticHintLn",
+  },
 })
 
 -- Show line diagnostics automatically in hover window

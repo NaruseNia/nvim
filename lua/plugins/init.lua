@@ -1,6 +1,14 @@
 local config_util = require("libs._set_config")
+local os_util = require("libs.os_util")
 local load_conf = config_util.load_conf
 local load_confs = config_util.load_confs
+
+local disable_on_windows = function(plugin)
+  if os_util.is_windows_native() then
+    return {}
+  end
+  return plugin
+end
 
 require("lazy").setup({
   "onsails/lspkind.nvim",
@@ -151,7 +159,7 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
   },
-  {
+  disable_on_windows {
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",
     config = function()
@@ -167,7 +175,7 @@ require("lazy").setup({
   },
   "sindrets/diffview.nvim",
   "paopaol/telescope-git-diffs.nvim",
-  {
+  disable_on_windows {
     "linrongbin16/fzfx.nvim",
     -- Optional to avoid break changes between major versions.
     version = "v7.*",
@@ -582,7 +590,7 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
 
   -- AI
-  {
+  disable_on_windows {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
