@@ -25,15 +25,23 @@ require("lazy").setup({
   "aznhe21/actions-preview.nvim",
   "hrsh7th/nvim-gtd",
   "ollykel/v-vim",
+  "yioneko/nvim-vtsls",
   {
     "williamboman/mason.nvim",
-    version = "^1.0.0",
     build = ":MasonUpdate",
     opts = {},
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    version = "^1.0.0",
+    config = function()
+      require("mason-lspconfig").setup {
+        ensure_installed = {
+          "lua_ls",
+          "vtsls",
+        },
+        automatic_installation = true,
+      }
+    end,
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
   },
   {
@@ -126,19 +134,30 @@ require("lazy").setup({
     },
     opts = {} -- your configuration
   },
+  -- {
+  --   'dense-analysis/ale',
+  --   config = function()
+  --     -- Configuration goes here.
+  --     local g = vim.g
+  --
+  --     g.ale_ruby_rubocop_auto_correct_all = 1
+  --
+  --     g.ale_linters = {
+  --       ruby = { 'rubocop', 'ruby' },
+  --       lua = { 'lua_language_server' }
+  --     }
+  --   end
+  -- },
   {
-    'dense-analysis/ale',
-    config = function()
-      -- Configuration goes here.
-      local g = vim.g
-
-      g.ale_ruby_rubocop_auto_correct_all = 1
-
-      g.ale_linters = {
-        ruby = { 'rubocop', 'ruby' },
-        lua = { 'lua_language_server' }
-      }
-    end
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   },
 
   -- Treesitter
@@ -318,11 +337,11 @@ require("lazy").setup({
       },
     },
   },
-  {
-    "chrisgrieser/nvim-origami",
-    event = "VeryLazy",
-    opts = {}, -- needed even when using default config
-  },
+  -- {
+  --   "chrisgrieser/nvim-origami",
+  --   event = "VeryLazy",
+  --   opts = {}, -- needed even when using default config
+  -- },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
@@ -630,7 +649,6 @@ load_confs({
   "common",
   "cmp",
   "lspkind",
-  "lsp",
   "lsp-config",
   "mason-lspconfig",
   "mason-adaptor",

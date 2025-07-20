@@ -48,17 +48,15 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-vim.diagnostic.config({
-  virtual_lines = false,
-  linehl = {
-    [vim.diagnostic.severity.ERROR] = "DiagnosticErrorLn",
-    [vim.diagnostic.severity.WARN]  = "DiagnosticWarnLn",
-    [vim.diagnostic.severity.INFO]  = "DiagnosticInfoLn",
-    [vim.diagnostic.severity.HINT]  = "DiagnosticHintLn",
-  },
-})
-
 -- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
+-- vim.o.updatetime = 250
 -- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 require("autocmd")
+require("lsp")
+
+vim.diagnostic.config({
+  virtual_lines = false,
+  virtual_text = {
+    virt_text_hide = true,
+  },
+})
