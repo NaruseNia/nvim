@@ -26,6 +26,38 @@ exports.ui = {
   },
   statusline = {
     theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp_c", "copilot", "cursor", "cwd" },
+    modules = {
+      lsp_c = function()
+        local lsp_ignore = {
+          "copilot",
+        }
+        local client = vim
+            .iter(vim.lsp.get_clients { bufnr = 0 })
+            :map(function(c)
+              if vim.tbl_contains(lsp_ignore, c.name) then
+                return nil
+              end
+              return c.name
+            end)
+            :totable()
+        return "%#St_Lsp# 󰣖 " .. table.concat(client, ", ");
+      end,
+
+      copilot = function()
+        local client = vim.iter(vim.lsp.get_clients { bufnr = 0 }):filter(function(c)
+          return c.name:match("copilot")
+        end):totable()
+
+        if #client > 0 then
+          return "%#St_Lsp#  " .. client[1].name
+        else
+          return "%#StText#  "
+        end
+      end,
+
+      abc = "aaa",
+    }
   },
 }
 

@@ -5,12 +5,12 @@ local crates = require("crates")
 local opts = { noremap = true, silent = true }
 
 --#region General
-vim.keymap.set(
-  "i",
-  "<C-z>",
-  'copilot#Accept("<CR>")',
-  { silent = true, expr = true, replace_keycodes = false, script = true }
-)
+-- vim.keymap.set(
+--   "i",
+--   "<C-z>",
+--   'copilot#Accept("<CR>")',
+--   { silent = true, expr = true, replace_keycodes = false, script = true }
+-- )
 
 vim.keymap.set("n", "<C-i>", "mmyyp`mj", { desc = "Duplicate line", noremap = true, silent = true })
 vim.keymap.set({ "n", "i" }, "<C-l>", require("actions-preview").code_actions, { desc = "LSP code action" })
@@ -81,7 +81,7 @@ vim.keymap.set("n", "<leader>tt", "<C-\\><C-n>:ToggleTerm direction=float<CR>",
 --#endregion
 
 -- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
--- vim.keymap.set("t", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
+-- vim.keymap.set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 --#region Accelerated jk
 vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})

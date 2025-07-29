@@ -42,8 +42,7 @@
 --     })
 -- end
 --
--- vim.keymap.set('n', '<Leader>gl', on_hover, {})
-
+-- vim.keymap.set('n', '<Leader>gl', on_hover, {}
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf ---@type number

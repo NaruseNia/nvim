@@ -20,6 +20,10 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline",
   "L3MON4D3/LuaSnip",
   "hrsh7th/nvim-cmp",
+  {
+    "zbirenbaum/copilot-cmp",
+    opts = {},
+  },
 
   -- Mason, LSP, DAP, Lint and etc.
   "aznhe21/actions-preview.nvim",
@@ -60,7 +64,10 @@ require("lazy").setup({
   },
   "jay-babu/mason-nvim-dap.nvim",
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require("copilot").setup {}
+    end,
     lazy = false,
   },
   {
@@ -336,6 +343,12 @@ require("lazy").setup({
       },
     },
   },
+  {
+    "jonahgoldwastaken/copilot-status.nvim",
+    dependencies = { "zbirenbaum/copilot.lua" }, -- or "zbirenbaum/copilot.lua"
+    lazy = true,
+    event = "BufReadPost",
+  },
   -- {
   --   "chrisgrieser/nvim-origami",
   --   event = "VeryLazy",
@@ -431,6 +444,7 @@ require("lazy").setup({
   "windwp/nvim-ts-autotag",
   "nvim-focus/focus.nvim",
   "rapan931/lasterisk.nvim",
+  "jake-stewart/multicursor.nvim",
   {
     "saifulapm/commasemi.nvim",
     lazy = false,
@@ -478,13 +492,6 @@ require("lazy").setup({
         "<leader>cw",
         "<cmd>Yazi cwd<cr>",
         desc = "Open the file manager in nvim's working directory",
-      },
-      {
-        -- NOTE: this requires a version of yazi that includes
-        -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
-        "<c-up>",
-        "<cmd>Yazi toggle<cr>",
-        desc = "Resume the last yazi session",
       },
     },
     ---@type YaziConfig
@@ -608,37 +615,37 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
 
   -- AI
-  disable_on_windows {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false,
-    build = "make",
-    opts = {
-      provider = "copilot",
-      auto_suggestions_provider = "copilot",
-
-      behaviour = {
-        auto_suggestions = true,
-        auto_set_highlight_group = true,
-        auto_set_keymaps = true,
-        auto_apply_diff_after_generation = true,
-        support_paste_from_clipboard = false,
-        minimize_diff = true,
-      },
-
-      windows = {
-        position = "right",
-        wrap = true,
-        width = 30,
-      },
-    },
-    dependencies = {
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    }
-  },
+  -- disable_on_windows {
+  --   "yetone/avante.nvim",
+  --   event = "VeryLazy",
+  --   lazy = false,
+  --   version = false,
+  --   build = "make",
+  --   opts = {
+  --     provider = "copilot",
+  --     auto_suggestions_provider = "copilot",
+  --
+  --     behaviour = {
+  --       auto_suggestions = true,
+  --       auto_set_highlight_group = true,
+  --       auto_set_keymaps = true,
+  --       auto_apply_diff_after_generation = true,
+  --       support_paste_from_clipboard = false,
+  --       minimize_diff = true,
+  --     },
+  --
+  --     windows = {
+  --       position = "right",
+  --       wrap = true,
+  --       width = 30,
+  --     },
+  --   },
+  --   dependencies = {
+  --     "stevearc/dressing.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --   }
+  -- },
 
   -- Themes
   "morhetz/gruvbox",
@@ -660,4 +667,5 @@ load_confs({
   "ufo",
   "statuscol",
   "scrollview",
+  "multicursor",
 })
