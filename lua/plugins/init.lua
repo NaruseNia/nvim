@@ -14,15 +14,26 @@ require("lazy").setup({
   "onsails/lspkind.nvim",
 
   -- Completion
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  "L3MON4D3/LuaSnip",
-  "hrsh7th/nvim-cmp",
+  -- "hrsh7th/nvim-cmp",
+  -- "hrsh7th/cmp-nvim-lsp",
+  -- "hrsh7th/cmp-path",
+  -- "hrsh7th/cmp-cmdline",
+  -- "hrsh7th/nvim-cmp",
+  "fang2hou/blink-copilot",
   {
-    "zbirenbaum/copilot-cmp",
-    opts = {},
+    "saghen/blink.cmp",
+    version = "*",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    dependencies = { "L3MON4D3/LuaSnip" },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip").setup({})
+      require("luasnip.loaders.from_snipmate").lazy_load()
+      require("luasnip.loaders.from_lua").lazy_load()
+    end,
   },
 
   -- Mason, LSP, DAP, Lint and etc.
@@ -65,9 +76,10 @@ require("lazy").setup({
   "jay-babu/mason-nvim-dap.nvim",
   {
     "zbirenbaum/copilot.lua",
-    config = function()
-      require("copilot").setup {}
-    end,
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
     lazy = false,
   },
   {
@@ -653,7 +665,8 @@ require("lazy").setup({
 
 load_confs({
   "common",
-  "cmp",
+  -- "cmp",
+  "blink-cmp",
   "lspkind",
   "lsp-config",
   "mason-lspconfig",

@@ -1,7 +1,7 @@
 vim.lsp.config('*', {
-  capabilities = require('cmp_nvim_lsp').default_capabilities(
-    vim.lsp.protocol.make_client_capabilities()
-  )
+  -- capabilities = require('cmp_nvim_lsp').default_capabilities(
+  --   vim.lsp.protocol.make_client_capabilities()
+  -- )
 })
 
 vim.lsp.config("lua_ls", require("lsp.lua_ls"))

@@ -28,6 +28,9 @@ vim.keymap.set('n', '<leader>x', '<cmd>BDelete this<cr>', { desc = 'Close this' 
 vim.keymap.set('n', '<leader>q', '<cmd>BDelete this<cr><cmd>q<cr>', { desc = 'Close this and close pane' })
 vim.keymap.set('n', '<leader>bo', '<cmd>BDelete other<cr>', { desc = 'Close other buffer(s)' })
 vim.keymap.set('n', '<leader>/', ':noh<cr>', { desc = 'Clear search' })
+vim.keymap.set('n', '<A-J>', '<cmd>m+1<cr>', { desc = 'Swap lower' })
+vim.keymap.set('n', '<A-K>', '<cmd>m-2<cr>', { desc = 'Swap upper' })
+vim.keymap.set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set('n', '<leader>oo', '<cmd>Oil<cr>', { desc = 'Open Oil' })
 --#endregion
@@ -81,7 +84,6 @@ vim.keymap.set("n", "<leader>tt", "<C-\\><C-n>:ToggleTerm direction=float<CR>",
 --#endregion
 
 -- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
--- vim.keymap.set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 --#region Accelerated jk
 vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
