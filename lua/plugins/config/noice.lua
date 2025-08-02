@@ -31,14 +31,7 @@ require("noice").setup({
   },
   cmdline = {
     enabled = true,
-    format = {
-      search_down = {
-        view = "cmdline",
-      },
-      search_up = {
-        view = "cmdline",
-      },
-    },
+    view = "cmdline", -- default view for cmdline
   },
   messages = {
     enabled = true,              -- enables the Noice messages UI

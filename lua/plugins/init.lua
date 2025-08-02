@@ -88,6 +88,13 @@ require("lazy").setup({
     lazy = false,   -- This plugin is already lazy
   },
   {
+    "GustavEikaas/easy-dotnet.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },
+    config = function()
+      require("easy-dotnet").setup()
+    end
+  },
+  {
     "ranjithshegde/ccls.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",

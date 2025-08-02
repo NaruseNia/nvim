@@ -1,5 +1,6 @@
 -- local hop = require("hop")
 -- local dircs = require("hop.hint").HintDirection
+local diary = require("libs.diary")
 local builtin = require("telescope.builtin")
 local crates = require("crates")
 local opts = { noremap = true, silent = true }
@@ -33,6 +34,7 @@ vim.keymap.set('n', '<A-K>', '<cmd>m-2<cr>', { desc = 'Swap upper' })
 vim.keymap.set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 vim.keymap.set('n', '<leader>oo', '<cmd>Oil<cr>', { desc = 'Open Oil' })
+vim.keymap.set('n', '<leader>ccd', diary.create_diary, { desc = 'Create diary' })
 --#endregion
 
 --#region Telescope
