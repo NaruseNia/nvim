@@ -1,5 +1,5 @@
-local config_util = require("libs._set_config")
 local os_util = require("libs.os_util")
+local config_util = require("libs._set_config")
 local load_confs = config_util.load_confs
 
 local disable_on_windows = function(plugin)
@@ -76,7 +76,7 @@ require("lazy").setup({
   {
     "zbirenbaum/copilot.lua",
     opts = {
-      suggestion = { enabled = false },
+      suggestion = { enabled = true },
       panel = { enabled = false },
     },
     lazy = false,
@@ -125,7 +125,7 @@ require("lazy").setup({
     "saecki/crates.nvim",
     tag = "stable",
     config = function()
-      require("crates").setup()
+      require("crates").setup {}
     end,
   },
   -- {
