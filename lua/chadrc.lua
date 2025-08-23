@@ -12,7 +12,7 @@ exports.base46 = {
       },
     },
   },
-  theme = "gruvchad",
+  theme = "kanagawa-dragon",
 }
 
 exports.ui = {

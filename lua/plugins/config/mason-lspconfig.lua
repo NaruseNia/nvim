@@ -8,3 +8,7 @@
 --     require('lspconfig')[server].setup(opt)
 --   end
 -- end })
+--
+require('mason-lspconfig').setup {
+  ensure_installed = { "lua_ls", "vtsls", "zls", "omnisharp", "jdtls" },
+}

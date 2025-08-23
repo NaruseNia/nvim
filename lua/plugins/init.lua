@@ -1,6 +1,5 @@
 local config_util = require("libs._set_config")
 local os_util = require("libs.os_util")
-local load_conf = config_util.load_conf
 local load_confs = config_util.load_confs
 
 local disable_on_windows = function(plugin)
@@ -99,6 +98,17 @@ require("lazy").setup({
     dependencies = {
       "neovim/nvim-lspconfig",
     },
+    config = function()
+      require('ccls').setup({
+        lsp = {
+          codelens = {
+            enable = true,
+            events = { "BufWritePost", "InsertLeave" }
+          },
+          use_defaults = true,
+        }
+      })
+    end,
   },
   {
     "mfussenegger/nvim-jdtls",
@@ -184,12 +194,40 @@ require("lazy").setup({
       },
     },
   },
+  {
+    "apyra/nvim-unity-sync",
+    lazy = false,
+    config = function()
+      require("unity.plugin").setup()
+    end,
+  },
 
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-context",
     build = ":TSUpdate",
+    opts = {
+      ensure_installed = {
+        "c",
+        "cpp",
+        "c_sharp",
+        "lua",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        "html",
+        "css",
+        "markdown",
+        "markdown_inline",
+        "rust",
+        "yaml",
+        "python",
+        "bash",
+        "dockerfile",
+      },
+    }
   },
 
   -- Fizzy

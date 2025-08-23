@@ -38,7 +38,7 @@ vim.opt.relativenumber = true
 
 -- vim.cmd("colorscheme obscure")
 if vim.g.neovide then
-  vim.o.guifont = "Moralerspace Neon NF"
+  vim.o.guifont = "Guguru Sans Code Console NF"
 end
 
 -- Folding
