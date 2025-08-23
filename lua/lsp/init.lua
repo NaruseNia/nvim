@@ -7,11 +7,13 @@ vim.lsp.config('*', {
 vim.lsp.config("lua_ls", require("lsp.lua_ls"))
 vim.lsp.config("vtsls", require("lsp.vtsls"))
 vim.lsp.config("zls", require("lsp.zls"))
+vim.lsp.config("omnisharp", require("lsp.omnisharp"))
 
 local lsps = {
   "lua_ls",
   "vtsls",
   "zls",
+  "omnisharp",
 }
 
 vim.lsp.enable(lsps, true)
