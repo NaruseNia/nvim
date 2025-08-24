@@ -1,5 +1,5 @@
-local os_util = require("libs.os_util")
 local config_util = require("libs._set_config")
+local os_util = require("libs.os_util")
 local load_confs = config_util.load_confs
 
 local disable_on_windows = function(plugin)
@@ -239,6 +239,9 @@ require("lazy").setup({
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",
     config = function()
+      if os_util.is_windows_native() then
+        vim.g.sqlite_clib_path = "C:/Library/sqlite3.dll"
+      end
       require("telescope").load_extension("smart_open")
     end,
     dependencies = {

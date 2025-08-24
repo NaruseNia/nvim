@@ -56,9 +56,13 @@ vim.keymap.set("n", "<leader>vc", builtin.git_commits, { desc = "Telescope LSP c
 vim.keymap.set("n", "<leader>vs", builtin.git_status, { desc = "Telescope git status" })
 vim.keymap.set("n", "<leader>vb", builtin.git_branches, { desc = "Telescope git branches" })
 
-vim.keymap.set("n", "<leader><leader>", function()
-  require("telescope").extensions.smart_open.smart_open()
-end, { noremap = true, silent = true })
+if os_util.is_windows_native() then
+  vim.keymap.set("n", "<leader><leader>", builtin.find_files, { noremap = true, silent = true })
+else
+  vim.keymap.set("n", "<leader><leader>", function()
+    require("telescope").extensions.smart_open.smart_open()
+  end, { noremap = true, silent = true })
+end
 --#endregion
 
 --#region Crates
