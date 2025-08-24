@@ -13,11 +13,6 @@ require("lazy").setup({
   "onsails/lspkind.nvim",
 
   -- Completion
-  -- "hrsh7th/nvim-cmp",
-  -- "hrsh7th/cmp-nvim-lsp",
-  -- "hrsh7th/cmp-path",
-  -- "hrsh7th/cmp-cmdline",
-  -- "hrsh7th/nvim-cmp",
   "fang2hou/blink-copilot",
   {
     "saghen/blink.cmp",
@@ -34,7 +29,6 @@ require("lazy").setup({
       require("luasnip.loaders.from_lua").lazy_load()
     end,
   },
-
   -- Mason, LSP, DAP, Lint and etc.
   "aznhe21/actions-preview.nvim",
   "hrsh7th/nvim-gtd",

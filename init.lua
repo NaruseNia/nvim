@@ -37,10 +37,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- vim.cmd("colorscheme obscure")
-if vim.g.neovide then
-  vim.o.guifont = "Guguru Sans Code Console NF"
-end
-
 -- Folding
 vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
@@ -60,3 +56,7 @@ vim.diagnostic.config({
     virt_text_hide = true,
   },
 })
+
+if vim.g.neovide then
+  vim.o.guifont = "Guguru Sans Code Console NF"
+end

@@ -1,19 +1,55 @@
-vim.lsp.config('*', {
-  -- capabilities = require('cmp_nvim_lsp').default_capabilities(
-  --   vim.lsp.protocol.make_client_capabilities()
-  -- )
-})
-
-vim.lsp.config("lua_ls", require("lsp.lua_ls"))
-vim.lsp.config("vtsls", require("lsp.vtsls"))
-vim.lsp.config("zls", require("lsp.zls"))
-vim.lsp.config("omnisharp", require("lsp.omnisharp"))
-
-local lsps = {
+local servers = {
   "lua_ls",
   "vtsls",
+  "tailwindcss",
   "zls",
   "omnisharp",
 }
 
-vim.lsp.enable(lsps, true)
+vim.lsp.enable(servers, true)
+
+require('mason').setup {}
+require('mason-lspconfig').setup {
+  ensure_installed = servers,
+}
+
+vim.g.rustaceanvim = {
+  server = {
+    settings = {
+      ["rust-analyzer"] = {
+        inlayHints = {
+          bindingModeHints = {
+            enable = false,
+          },
+          chainingHints = {
+            enable = true,
+          },
+          closingBraceHints = {
+            enable = true,
+            minLines = 25,
+          },
+          closureReturnTypeHints = {
+            enable = "never",
+          },
+          lifetimeElisionHints = {
+            enable = "never",
+            useParameterNames = false,
+          },
+          maxLength = 25,
+          parameterHints = {
+            enable = true,
+          },
+          reborrowHints = {
+            enable = "never",
+          },
+          renderColons = true,
+          typeHints = {
+            enable = true,
+            hideClosureInitialization = false,
+            hideNamedConstructor = false,
+          },
+        },
+      },
+    },
+  },
+}

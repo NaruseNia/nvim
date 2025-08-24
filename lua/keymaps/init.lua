@@ -3,6 +3,7 @@
 local diary = require("libs.diary")
 local builtin = require("telescope.builtin")
 local crates = require("crates")
+local os_util = require("libs.os_util")
 local opts = { noremap = true, silent = true }
 
 --#region General
@@ -54,6 +55,7 @@ vim.keymap.set("n", "<leader>fz", builtin.lsp_workspace_symbols, { desc = "Teles
 vim.keymap.set("n", "<leader>vc", builtin.git_commits, { desc = "Telescope LSP commits" })
 vim.keymap.set("n", "<leader>vs", builtin.git_status, { desc = "Telescope git status" })
 vim.keymap.set("n", "<leader>vb", builtin.git_branches, { desc = "Telescope git branches" })
+
 vim.keymap.set("n", "<leader><leader>", function()
   require("telescope").extensions.smart_open.smart_open()
 end, { noremap = true, silent = true })
