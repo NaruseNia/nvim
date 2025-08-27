@@ -15,21 +15,31 @@ local get_jdtls = function(home_dir)
   end
 end
 
+local get_os_name = function()
+  if os_util.is_windows_native() then
+    return "win"
+  elseif os_util.is_mac() then
+    return "mac"
+  else
+    return "linux"
+  end
+end
+
 local home = os.getenv("HOME")
 local jdtls_path = get_jdtls(home)
-local config_dir = jdtls_path .. "/config_mac" -- if you use linux /config_linux
+local config_dir = jdtls_path .. "/config_" .. get_os_name() -- if you use linux /config_linux
 local launcher_path = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
 local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
 
 -- LSP capabilities with nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-function get_java_home()
+local function get_java_home()
   return os.getenv("JAVA_HOME")
 end
 
-function get_java()
+local function get_java()
   return get_java_home() .. "/bin/java"
 end
 
