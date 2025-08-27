@@ -489,6 +489,15 @@ require("lazy").setup({
     'dnlhc/glance.nvim',
     cmd = 'Glance'
   },
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {
+      disable_mouse = false,
+      enabled = false,
+    },
+  },
 
   -- UX
   "monaqa/dial.nvim",

@@ -38,6 +38,7 @@ vim.keymap.set('n', '<leader>oo', '<cmd>Oil<cr>', { desc = 'Open Oil' })
 vim.keymap.set('n', '<leader>ccd', diary.create_diary, { desc = 'Create diary' })
 vim.keymap.set('n', '<leader>ca', function() require("copilot.suggestion").toggle_auto_trigger() end,
   { desc = 'Toggle copilot auto trigger' })
+vim.keymap.set('n', '<leader>op', '<cmd>Hardtime toggle<cr>', { desc = 'Close other buffer(s)' })
 --#endregion
 
 --#region Telescope
