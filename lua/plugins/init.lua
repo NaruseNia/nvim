@@ -107,19 +107,25 @@ require("themery").setup({
   livePreview = true,
 })
 
-add({
-  source = "nvim-telescope/telescope.nvim",
-  depends = {
-    "nvim-lua/plenary.nvim",
-  },
-})
-add({
-  source = "danielfalk/smart-open.nvim",
-  depends = {
-    "kkharji/sqlite.lua",
-    "nvim-telescope/telescope-fzy-native.nvim",
-  },
-})
+do
+  add({ source = "stevearc/aerial.nvim" })
+  require("aerial").setup {}
+
+  add({
+    source = "nvim-telescope/telescope.nvim",
+    depends = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
+  add({
+    source = "danielfalk/smart-open.nvim",
+    depends = {
+      "kkharji/sqlite.lua",
+      "nvim-telescope/telescope-fzy-native.nvim",
+    },
+  })
+  c.load_conf("telescope")
+end
 
 add({
   source = "nvimtools/none-ls.nvim",
@@ -196,7 +202,3 @@ do
   c.load_conf("hlchunk")
 end
 
-later(function()
-  add({ source = "stevearc/aerial.nvim" })
-  require("aerial").setup {}
-end)
