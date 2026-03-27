@@ -202,3 +202,7 @@ do
   c.load_conf("hlchunk")
 end
 
+do
+  add({ source = "jake-stewart/multicursor.nvim" })
+  c.load_conf("multicursor")
+end
