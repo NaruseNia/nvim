@@ -18,7 +18,7 @@ require('incline').setup {
       ft_icon and { ' ', ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
       ' ',
       { filename, gui = modified and 'bold,italic' or 'bold' },
-      guibg = '#44406e',
+      guibg = vim.api.nvim_get_hl(0, { name = 'NormalFloat' }).background,
     }
     if props.focused then
       for _, item in ipairs(navic.get_data(props.buf) or {}) do
