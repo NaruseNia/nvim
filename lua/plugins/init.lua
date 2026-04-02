@@ -96,16 +96,26 @@ require("mason-lspconfig").setup({
   automatic_installation = true,
 })
 
-add({ source = "rebelot/kanagawa.nvim" })
-add({ source = "nyoom-engineering/oxocarbon.nvim" })
-add({ source = "dgox16/oldworld.nvim" })
-add({ source = "vague2k/vague.nvim" })
-require("vague").setup({})
-add({ source = "zaldih/themery.nvim" })
-require("themery").setup({
-  themes = vim.fn.getcompletion("", "color"),
-  livePreview = true,
-})
+-- Themes [[
+do
+  add({ source = "rebelot/kanagawa.nvim" })
+  add({ source = "nyoom-engineering/oxocarbon.nvim" })
+  add({ source = "dgox16/oldworld.nvim" })
+  add({
+    source = "metalelf0/jellybeans-nvim",
+    depends = {
+      "rktjmp/lush.nvim"
+    }
+  })
+  add({ source = "vague2k/vague.nvim" })
+  require("vague").setup({})
+  add({ source = "zaldih/themery.nvim" })
+  require("themery").setup({
+    themes = vim.fn.getcompletion("", "color"),
+    livePreview = true,
+  })
+end
+-- ]]
 
 do
   add({ source = "stevearc/aerial.nvim" })

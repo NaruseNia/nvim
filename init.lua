@@ -37,7 +37,7 @@ require("keymaps")
 
 -- Color scheme --
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme oldworld]])
+vim.cmd([[colorscheme aizen]])
 
 -- Neovide settings --
 if vim.g.neovide then
