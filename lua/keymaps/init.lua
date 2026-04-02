@@ -6,6 +6,7 @@ set("n", "<A-J>", "<cmd>m+1<cr>", { desc = "Swap lower" })
 set("n", "<A-K>", "<cmd>m-2<cr>", { desc = "Swap upper" })
 set({ "n", "i" }, "<C-l>", require("actions-preview").code_actions, { desc = "LSP code action" })
 set("n", "<leader>ya", ":%y+<CR>", { desc = "Copy all" })
+set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
 -- Neotree
 set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
@@ -35,8 +36,7 @@ set({ "n", "i" }, "<C-z>", function()
   require("copilot.suggestion").accept()
 end, { desc = "Copilot accept" })
 
--- Aerial
-set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+-- Aerial set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 
 -- Multicursor
 do
@@ -61,6 +61,21 @@ do
 
   -- Disable and enable cursors.
   set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle multicursor" })
+end
+
+-- Ufo
+do
+  local ufo = require("ufo")
+  set("n", "zR", ufo.openAllFolds, { desc = "Open all folds" })
+  set("n", "zM", ufo.closeAllFolds, { desc = "Close all folds" })
+  set("n", "zr", ufo.openFoldsExceptKinds, { desc = "Open folds except kinds" })
+  set("n", "zm", ufo.closeFoldsWith, { desc = "Close folds with kinds" })
+  set("n", "zK", function()
+    local winid = ufo.peekFoldedLinesUnderCursor()
+    if not winid then
+      vim.lsp.buf.hover()
+    end
+  end, { desc = "Peek fold or hover" })
 end
 
 -- Hover (lazy)

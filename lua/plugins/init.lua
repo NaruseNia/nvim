@@ -180,6 +180,11 @@ later(function()
   c.load_conf("conform")
 end)
 
+add({ source = "kevinhwang91/nvim-ufo", depends = { "kevinhwang91/promise-async" } })
+c.load_conf("ufo")
+add({ source = "luukvbaal/statuscol.nvim" })
+c.load_conf("statuscol")
+
 later(function()
   add({ source = "dnlhc/glance.nvim" })
   c.load_conf("glance")
