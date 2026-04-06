@@ -80,6 +80,38 @@ do
   end, { desc = "Peek fold or hover" })
 end
 
+-- Cybu
+set("n", "K", "<plug>(CybuPrev)", { desc = "Previous buffer" })
+set("n", "J", "<plug>(CybuNext)", { desc = "Next buffer" })
+set({ "n", "v" }, "<a-s-tab>", "<plug>(CybuPrev)", { desc = "Previous buffer" })
+set({ "n", "v" }, "<a-tab>", "<plug>(CybuNext)", { desc = "Next buffer" })
+
+-- Dial
+set("n", "<C-a>", function()
+  require("dial.map").manipulate("increment", "normal")
+end)
+set("n", "<C-x>", function()
+  require("dial.map").manipulate("decrement", "normal")
+end)
+set("n", "g<C-a>", function()
+  require("dial.map").manipulate("increment", "gnormal")
+end)
+set("n", "g<C-x>", function()
+  require("dial.map").manipulate("decrement", "gnormal")
+end)
+set("x", "<C-a>", function()
+  require("dial.map").manipulate("increment", "visual")
+end)
+set("x", "<C-x>", function()
+  require("dial.map").manipulate("decrement", "visual")
+end)
+set("x", "g<C-a>", function()
+  require("dial.map").manipulate("increment", "gvisual")
+end)
+set("x", "g<C-x>", function()
+  require("dial.map").manipulate("decrement", "gvisual")
+end)
+
 -- Hover (lazy)
 -- See: plugins.config.hover
 

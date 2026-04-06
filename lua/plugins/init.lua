@@ -230,5 +230,26 @@ do
     add({ source = "jake-stewart/multicursor.nvim" })
     c.load_conf("multicursor")
   end
+
+  do
+    add({ source = "folke/which-key.nvim" })
+  end
+
+  do
+    add({
+      source = "ghillb/cybu.nvim",
+      checkout = "main",
+      monitor = "main",
+      depends = {
+        "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim"
+      }
+    })
+    require("cybu").setup {}
+  end
+
+  add({ source = "monaqa/dial.nvim" })
+
+  add({ source = "johmsalas/text-case.nvim" })
+  require("textcase").setup {}
 end
 --#endregion
