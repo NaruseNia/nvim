@@ -47,11 +47,9 @@ vim.cmd([[colorscheme aizen]])
 
 -- Neovide settings --
 if vim.g.neovide then
-  local padding_x = 64
-  local padding_y = 64
+  local padding_x = 32
+  local padding_y = 32
   local floating_blur = 4.0
-
-  vim.g.guifont = "Lilex Nerd Font:h14"
 
   vim.g.neovide_window_blurred = true
   vim.g.neovide_opacity = 0.7
