@@ -25,22 +25,23 @@ now(function()
     depends = { "williamboman/mason.nvim" },
   })
 end)
+now(function()
+  add({
+    source = "nvim-treesitter/nvim-treesitter",
+    checkout = "main",
+    monitor = "main",
+    hooks = {
+      post_checkout = function()
+        vim.cmd("TSUpdate")
+      end,
+    },
+  })
+end)
 
 add({
   source = "zbirenbaum/copilot.lua",
 })
 require("copilot").setup({})
-
-add({
-  source = "nvim-treesitter/nvim-treesitter",
-  checkout = "main",
-  monitor = "main",
-  hooks = {
-    post_checkout = function()
-      vim.cmd("TSUpdate")
-    end,
-  },
-})
 -- require("nvim-treesitter.configs").setup({
 --   highlight = { enable = true },
 -- })

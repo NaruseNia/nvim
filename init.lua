@@ -32,6 +32,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Plugins --
 require("pack_init")
+require("filetype")
 require("plugins")
 require("keymaps")
 
