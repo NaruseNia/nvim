@@ -33,7 +33,7 @@ require("copilot").setup({})
 
 add({
   source = "nvim-treesitter/nvim-treesitter",
-  checkout = "master",
+  checkout = "main",
   monitor = "main",
   hooks = {
     post_checkout = function()
@@ -41,9 +41,9 @@ add({
     end,
   },
 })
-require("nvim-treesitter.configs").setup({
-  highlight = { enable = true },
-})
+-- require("nvim-treesitter.configs").setup({
+--   highlight = { enable = true },
+-- })
 
 -- File explorer [[
 do

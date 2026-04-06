@@ -7,6 +7,8 @@ set("n", "<A-K>", "<cmd>m-2<cr>", { desc = "Swap upper" })
 set({ "n", "i" }, "<C-l>", require("actions-preview").code_actions, { desc = "LSP code action" })
 set("n", "<leader>ya", ":%y+<CR>", { desc = "Copy all" })
 set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
+set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Linebreak wrap" })
+set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Linebreak nowrap" })
 
 -- Neotree
 set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
