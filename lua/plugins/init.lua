@@ -65,6 +65,8 @@ now(function()
     depends = { "nvim-lua/plenary.nvim" },
   })
   add({ source = "jay-babu/mason-null-ls.nvim" })
+  add({ source = "onsails/lspkind.nvim" })
+  c.load_conf("lspkind")
 end)
 --#endregion
 
@@ -162,6 +164,18 @@ do
     },
   })
   c.load_conf("blink")
+end
+--#endregion
+
+--#region AI
+do
+  add({
+    source = "coder/claudecode.nvim",
+    depends = {
+      "folke/snacks.nvim",
+    },
+  })
+  require("claudecode").setup {}
 end
 --#endregion
 
