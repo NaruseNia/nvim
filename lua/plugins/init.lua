@@ -179,6 +179,13 @@ do
 end
 --#endregion
 
+--#region Git
+do
+  add({ source = "kdheepak/lazygit.nvim" })
+  add({ source = "sindrets/diffview.nvim" })
+end
+--#endregion
+
 --#region Misc
 do
   add({
@@ -229,7 +236,6 @@ do
   require('render-markdown').setup({
     completions = { lsp = { enabled = true } },
   })
-  add({ source = "kdheepak/lazygit.nvim" })
   add({ source = "sitiom/nvim-numbertoggle" })
   add({ source = "SmiteshP/nvim-navic", depends = { "neovim/nvim-lspconfig" } })
 
