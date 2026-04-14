@@ -67,6 +67,9 @@ now(function()
   add({ source = "jay-babu/mason-null-ls.nvim" })
   add({ source = "onsails/lspkind.nvim" })
   c.load_conf("lspkind")
+
+  add({ source = "rachartier/tiny-code-action.nvim" })
+  c.load_conf("tiny-code-action")
 end)
 --#endregion
 
