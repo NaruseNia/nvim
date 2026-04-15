@@ -9,6 +9,7 @@ set("n", "<leader>ya", ":%y+<CR>", { desc = "Copy all" })
 set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Linebreak wrap" })
 set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Linebreak nowrap" })
+set("n", "<leader>ll", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
 set({ "n", "x" }, "<c-k>", function() require("tiny-code-action").code_action() end,
   { noremap = true, silent = true, desc = "Tiny code action" })
 
@@ -129,11 +130,20 @@ set("n", "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 set("n", "<leader>df", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
 set("n", "<leader>dx", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" })
 
+-- Flash
+-- See: plugins.config.flash
+set({ "n", "x", "o" }, ';', function()
+  require("flash").jump({
+    search = {
+      mode = function(str)
+        return vim.fn['kensaku#query'](str)
+      end
+    }
+  })
+end, { desc = "Flash" })
+
 -- Hover (lazy)
 -- See: plugins.config.hover
-
--- Flash (lazy)
--- See: plugins.config.flash
 
 -- Toggleterm (lazy)
 -- See: plugins.config.toggleterm

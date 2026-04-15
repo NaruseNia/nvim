@@ -20,12 +20,12 @@ later(function()
 end)
 --#endregion
 
---#region LSP/Treesitter
+--#region Prerequisites
 now(function()
-  add({
-    source = "neovim/nvim-lspconfig",
-    depends = { "williamboman/mason.nvim" },
-  })
+  add({ source = "nvim-lua/plenary.nvim" })
+  add({ source = "nvim-tree/nvim-web-devicons" })
+  add({ source = "neovim/nvim-lspconfig" })
+  add({ source = "vim-denops/denops.vim" })
   add({
     source = "nvim-treesitter/nvim-treesitter",
     checkout = "main",
@@ -36,6 +36,11 @@ now(function()
       end,
     },
   })
+end)
+--#endregion
+
+--#region LSP/Treesitter
+now(function()
   add({
     source = "williamboman/mason.nvim",
     hooks = {
@@ -70,6 +75,8 @@ now(function()
 
   add({ source = "rachartier/tiny-code-action.nvim" })
   c.load_conf("tiny-code-action")
+
+  add({ source = "mrcjkb/rustaceanvim" })
 end)
 --#endregion
 
@@ -189,6 +196,31 @@ do
 end
 --#endregion
 
+--#region UX
+do
+  add({ source = "aznhe21/actions-preview.nvim" })
+
+  later(function()
+    add({ source = "lewis6991/hover.nvim" })
+    c.load_conf("hover")
+  end)
+
+  do
+    add({ source = "lambdalisue/kensaku.vim" })
+    add({ source = "lambdalisue/kensaku-search.vim" })
+    add({ source = "lambdalisue/kensaku-command.vim" })
+
+    add({ source = "folke/flash.nvim" })
+    c.load_conf("flash")
+  end
+
+  add({ source = "monaqa/dial.nvim" })
+
+  add({ source = "johmsalas/text-case.nvim" })
+  require("textcase").setup {}
+end
+--#endregion
+
 --#region Misc
 do
   add({
@@ -197,17 +229,6 @@ do
   })
   c.load_conf("lualine")
 
-  add({ source = "aznhe21/actions-preview.nvim" })
-
-  later(function()
-    add({ source = "lewis6991/hover.nvim" })
-    c.load_conf("hover")
-  end)
-
-  later(function()
-    add({ source = "folke/flash.nvim" })
-    c.load_conf("flash")
-  end)
 
   add({ source = "akinsho/toggleterm.nvim" })
   c.load_conf("toggleterm")
@@ -217,12 +238,11 @@ do
     c.load_conf("conform")
   end)
 
-  add({ source = "kevinhwang91/nvim-ufo", depends = { "kevinhwang91/promise-async" } })
+  add({ source = "kevinhwang91/nvim-ufo", depends = { "kevinhwang91/promise-async", "neovim/nvim-lspconfig" } })
   c.load_conf("ufo")
   add({ source = "luukvbaal/statuscol.nvim" })
   c.load_conf("statuscol")
 
-  add({ source = "mrcjkb/rustaceanvim" })
   add({ source = "kazhala/close-buffers.nvim" })
 
   later(function()
@@ -269,10 +289,5 @@ do
     })
     require("cybu").setup {}
   end
-
-  add({ source = "monaqa/dial.nvim" })
-
-  add({ source = "johmsalas/text-case.nvim" })
-  require("textcase").setup {}
 end
 --#endregion
