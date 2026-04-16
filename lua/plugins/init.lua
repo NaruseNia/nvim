@@ -209,6 +209,12 @@ do
     add({ source = "lambdalisue/kensaku.vim" })
     add({ source = "lambdalisue/kensaku-search.vim" })
     add({ source = "lambdalisue/kensaku-command.vim" })
+    vim.api.nvim_set_keymap(
+      'c',
+      '<CR>',
+      '<Plug>(kensaku-search-replace)<CR>',
+      { noremap = true, silent = true }
+    )
 
     add({ source = "folke/flash.nvim" })
     c.load_conf("flash")
