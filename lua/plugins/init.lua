@@ -241,6 +241,19 @@ do
 end
 --#endregion
 
+--#region Additional Support
+do
+  add({
+    source = "oclay1st/gradle.nvim",
+    depends = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    }
+  })
+  require("gradle").setup {}
+end
+--#endregion
+
 --#region Misc
 do
   add({

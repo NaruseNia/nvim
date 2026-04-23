@@ -130,6 +130,10 @@ set("n", "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 set("n", "<leader>df", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
 set("n", "<leader>dx", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" })
 
+-- Gradle
+set("n", "<leader>Gg", "<cmd>Gradle<cr>", { desc = "Gradle projects" })
+set("n", "<leader>Gf", "<cmd>GradleFavorites<cr>", { desc = "Gradle favorite commands" })
+
 -- Flash
 -- See: plugins.config.flash
 set({ "n", "x", "o" }, ';', function()
