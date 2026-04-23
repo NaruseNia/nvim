@@ -116,6 +116,22 @@ do
     { "nyoom-engineering/oxocarbon.nvim" },
     { "rebelot/kanagawa.nvim" },
     { "metalelf0/jellybeans-nvim" },
+    { "ellisonleao/gruvbox.nvim" },
+    { "bluz71/vim-moonfly-colors" },
+    { "zenbones-theme/zenbones.nvim" },
+    { "everviolet/nvim" },
+    { "olivercederborg/poimandres.nvim" },
+    { "Everblush/nvim" },
+    { "oskarnurm/koda.nvim" },
+    { "datsfilipe/vesper.nvim" },
+    { "yorumicolors/yorumi.nvim" },
+    { "vague2k/huez.nvim" },
+    { "ThorstenRhau/token" },
+    { "AhmedAbdulrahman/vim-aylin" },
+    { "kartikp10/noctis.nvim" },
+    { "phha/zenburn.nvim" },
+    { "catppuccin/nvim" },
+    { "rose-pine/neovim" },
     "aizen"
   })
 end
