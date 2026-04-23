@@ -44,7 +44,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Color scheme --
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme aizen]])
+-- vim.cmd([[colorscheme aizen]])
 
 -- Neovide settings --
 if vim.g.neovide then

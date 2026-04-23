@@ -104,21 +104,19 @@ end
 
 --#region Themes
 do
-  add({ source = "rebelot/kanagawa.nvim" })
-  add({ source = "nyoom-engineering/oxocarbon.nvim" })
-  add({ source = "dgox16/oldworld.nvim" })
   add({
-    source = "metalelf0/jellybeans-nvim",
+    source = "lmantw/themify.nvim",
     depends = {
       "rktjmp/lush.nvim"
     }
   })
-  add({ source = "vague2k/vague.nvim" })
-  require("vague").setup({})
-  add({ source = "zaldih/themery.nvim" })
-  require("themery").setup({
-    themes = vim.fn.getcompletion("", "color"),
-    livePreview = true,
+  require("themify").setup({
+    { "vague2k/vague.nvim" },
+    { "dgox16/oldworld.nvim" },
+    { "nyoom-engineering/oxocarbon.nvim" },
+    { "rebelot/kanagawa.nvim" },
+    { "metalelf0/jellybeans-nvim" },
+    "aizen"
   })
 end
 --#endregion
