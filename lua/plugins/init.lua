@@ -110,7 +110,16 @@ now(function()
   add({ source = "rachartier/tiny-code-action.nvim" })
   c.load_conf("tiny-code-action")
 
+  do
+    add({
+      source = "MysticalDevil/inlay-hints.nvim",
+      depends = { "neovim/nvim-lspconfig" }
+    })
+    require("inlay-hints").setup()
+  end
+
   add({ source = "mrcjkb/rustaceanvim" })
+  add({ source = "NaruseNia/valen.nvim" })
 end)
 --#endregion
 
