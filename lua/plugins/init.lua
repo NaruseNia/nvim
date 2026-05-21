@@ -258,6 +258,22 @@ do
 
   add({ source = "johmsalas/text-case.nvim" })
   require("textcase").setup {}
+
+  add({ source = "andersevenrud/nvim_context_vt" })
+  require("nvim_context_vt").setup {
+    prefix = "»",
+  }
+
+  add({ source = "jghauser/mkdir.nvim" })
+  add({ source = "nacro90/numb.nvim" })
+  add({ source = "JoosepAlviste/nvim-ts-context-commentstring" })
+  add({ source = "windwp/nvim-ts-autotag" })
+  add({ source = "unblevable/quick-scope" })
+  add({ source = "m-demare/hlargs.nvim" })
+  add({
+    source = "SmiteshP/nvim-navic",
+    depends = { "neovim/nvim-lspconfig" },
+  })
 end
 --#endregion
 
