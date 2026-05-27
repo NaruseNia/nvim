@@ -124,6 +124,10 @@ now(function()
 
   add({ source = "mrcjkb/rustaceanvim" })
   add({ source = "NaruseNia/valen.nvim" })
+  add({
+    source = "nvim-treesitter/nvim-treesitter-context",
+    depends = { "nvim-treesitter/nvim-treesitter" }
+  })
 end)
 --#endregion
 
