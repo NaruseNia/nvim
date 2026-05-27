@@ -10,6 +10,7 @@ set("n", "<leader>cr", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 set("n", "<leader>ww", ":set linebreak wrap<CR>", { desc = "Linebreak wrap" })
 set("n", "<leader>wn", ":set linebreak nowrap<CR>", { desc = "Linebreak nowrap" })
 set("n", "<leader>ll", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
+set("n", "<leader>hi", "<cmd>InlayHintsToggle<cr>", { desc = "Toggle InlayHints" })
 set({ "n", "x" }, "<c-k>", function() require("tiny-code-action").code_action() end,
   { noremap = true, silent = true, desc = "Tiny code action" })
 
