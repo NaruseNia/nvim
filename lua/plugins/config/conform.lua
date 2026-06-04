@@ -4,6 +4,9 @@ require("conform").setup({
 		rust = { "rust-analyzer" },
 		c = { "clangd-format" },
 		cpp = { "clangd-format" },
+		vue = { "prettier" },
+		typescript = { "prettier" },
+		javascript = { "prettier" },
 	},
 	format_on_save = {
 		timeout_ms = 500,

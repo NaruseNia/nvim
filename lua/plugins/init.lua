@@ -87,7 +87,6 @@ now(function()
       end,
     },
   })
-  require("mason").setup({})
   add({
     source = "williamboman/mason-lspconfig.nvim",
     hooks = {
@@ -96,13 +95,7 @@ now(function()
       end,
     },
   })
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      "lua_ls",
-      "vtsls",
-    },
-    automatic_installation = true,
-  })
+  c.load_conf("lsp")
   add({
     source = "nvimtools/none-ls.nvim",
     depends = { "nvim-lua/plenary.nvim" },
