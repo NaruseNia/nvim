@@ -121,6 +121,16 @@ now(function()
     source = "nvim-treesitter/nvim-treesitter-context",
     depends = { "nvim-treesitter/nvim-treesitter" }
   })
+
+  do
+    add({ source = "Canop/nvim-bacon" })
+    require("bacon").setup {
+      quickfix = {
+        enabled = true,
+        event_trigger = true,
+      },
+    }
+  end
 end)
 --#endregion
 

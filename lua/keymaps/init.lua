@@ -46,6 +46,10 @@ end, { desc = "Copilot accept" })
 set("n", "<leader>aa", "<cmd>AerialToggle!<CR>")
 set("n", "<leader>ae", "<cmd>AerialNavToggle<CR>")
 
+-- Bacon
+set("n", "<leader>!", ":BaconLoad<CR>:w<CR>:BaconNext<CR>", { desc = "Navigate to next bacon location" })
+set("n", "<leader>,", ":BaconList<CR>", { desc = "Open bacon locations list" })
+
 -- Multicursor
 do
   local mc = require("multicursor-nvim")
