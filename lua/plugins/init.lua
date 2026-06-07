@@ -236,6 +236,11 @@ do
   add({ source = "aznhe21/actions-preview.nvim" })
 
   later(function()
+    add({ source = "saecki/crates.nvim" })
+    require("crates").setup {}
+  end)
+
+  later(function()
     add({ source = "lewis6991/hover.nvim" })
     c.load_conf("hover")
   end)
