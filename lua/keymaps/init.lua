@@ -35,14 +35,16 @@ set("n", "<leader>q", "<cmd>BDelete this<cr><cmd>q<cr>", { desc = "Close this an
 set("n", "<leader>bo", "<cmd>BDelete other<cr>", { desc = "Close other buffer(s)" })
 
 -- Copilot
-set("n", "<leader>ca", function()
+set("n", "<leader>ss", function()
   require("copilot.suggestion").toggle_auto_trigger()
 end, { desc = "Toggle copilot auto trigger" })
 set({ "n", "i" }, "<C-z>", function()
   require("copilot.suggestion").accept()
 end, { desc = "Copilot accept" })
 
--- Aerial set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+-- Aerial
+set("n", "<leader>aa", "<cmd>AerialToggle!<CR>")
+set("n", "<leader>ae", "<cmd>AerialNavToggle<CR>")
 
 -- Multicursor
 do
@@ -117,15 +119,15 @@ set("x", "g<C-x>", function()
 end)
 
 -- ClaudeCode
-set("n", "<leader>ac", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude" })
-set("n", "<leader>af", "<cmd>ClaudeCodeFocus<cr>", { desc = "Focus Claude" })
-set("n", "<leader>ar", "<cmd>ClaudeCode --resume<cr>", { desc = "Resume Claude" })
-set("n", "<leader>aC", "<cmd>ClaudeCode --continue<cr>", { desc = "Continue Claude" })
-set("n", "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", { desc = "Select Claude model" })
-set("n", "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Add current buffer" })
-set("v", "<leader>as", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
-set("n", "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
-set("n", "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
+set("n", "<leader>cc", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude" })
+set("n", "<leader>cf", "<cmd>ClaudeCodeFocus<cr>", { desc = "Focus Claude" })
+set("n", "<leader>cr", "<cmd>ClaudeCode --resume<cr>", { desc = "Resume Claude" })
+set("n", "<leader>cC", "<cmd>ClaudeCode --continue<cr>", { desc = "Continue Claude" })
+set("n", "<leader>cm", "<cmd>ClaudeCodeSelectModel<cr>", { desc = "Select Claude model" })
+set("n", "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Add current buffer" })
+set("v", "<leader>cs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
+set("n", "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
+set("n", "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
 -- Diffview
 set("n", "<leader>df", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
