@@ -13,6 +13,8 @@ set("n", "<leader>ll", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
 set("n", "<leader>hi", "<cmd>InlayHintsToggle<cr>", { desc = "Toggle InlayHints" })
 set({ "n", "x" }, "<c-k>", function() require("tiny-code-action").code_action() end,
   { noremap = true, silent = true, desc = "Tiny code action" })
+set("t", "<A-C-p>", "<C-\\><C-N>", { desc = "Terminal normal mode" })
+
 
 -- Neotree
 set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle NeoTree" })
